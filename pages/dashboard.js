@@ -239,6 +239,8 @@ function Dashboard() {
                         <i className="fa-sharp fa-solid fa-credit-card"></i>
                         <label>Payment</label>
                       </div>
+
+                      
                       <div
                         onClick={() =>
                           downloadImage(
