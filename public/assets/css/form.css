@@ -1,0 +1,43 @@
+.formItem{
+    margin: 0px 0px 10px 0px;
+    
+}
+.formItem label {
+    width: 100% !important;
+    font-family: 'Lexend';
+    font-size: 12px;
+}
+
+.formItem input {
+    width: 100%;
+    height: 44px;
+    font-family: 'Lexend';
+    font-size: 13px;
+    outline: none;
+    padding-left: 10px;
+    border: 1px solid #7ec9f4;
+    border-radius: 4px;
+}
+
+input[type="file"] {
+    display: none;
+  }
+  
+  .custom-file-upload {
+    width: 100%;
+    height: 44px;
+    font-family: 'Lexend';
+    font-size: 13px;
+    outline: none;
+    padding-left: 10px;
+    border: 1px solid #7ec9f4;
+    border-radius: 4px;
+    /* margin: 10px 0px 0px 0px; */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }

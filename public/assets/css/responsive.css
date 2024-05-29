@@ -1,0 +1,231 @@
+@media only screen and (min-width: 320px) and (max-width: 575px)  {
+    footer .up_footerbox ul li .email_box input {
+        width: 77.5% !important;
+    }
+}
+@media (max-width:991px) {
+    .pricing_section .tab_box ul {
+        display: revert;
+    }
+
+    .pricing_section .tab_box {
+        padding: 15px;
+    }
+
+    .pricing_section .tab_box ul li p {
+        text-align: center;
+        margin: 10px 0px;
+    }
+
+    .features_plansection .table_box {
+        overflow-x: auto;
+    }
+
+    .pricing_banner .heading_box h1 {
+        font-size: 30px;
+    }
+
+    .pricing_banner .heading_box h5 {
+        font-size: 16px;
+    }
+
+    .pricing_section .heading_box h2 {
+        font-size: 26px;
+    }
+
+    .features_plansection .heading_box h2 {
+        font-size: 26px;
+    }
+
+    .faq_section .heading_box h2 {
+        font-size: 26px;
+    }
+
+    .clientreview_section .heading_box h2 {
+        font-size: 26px;
+    }
+
+    .pricing_section .tab_box {
+        margin: 10px 0px 0px 0px;
+    }
+
+    .pricing_section .pricing_box {
+        margin: 25px 0px 0px 0px;
+    }
+
+    .pricing_section .pricing_box.populer {
+        margin: 35px 0px 0px 0px;
+        transform: revert;
+    }
+
+    .account_detailssection .nav-tabs .nav-link {
+        padding: 8px 25px 8px 40px !important;
+    }
+
+    .header .wrapper ul {
+        display: none;
+    }
+
+    .sectionHeading h1 {
+        font-size: 24px;
+    }
+
+    .industries .tab-content .content h3 {
+        font-size: 25px;
+    }
+
+    .industries .tab-content .content {
+        padding: 15px;
+    }
+
+    .industries .tab-content .imgWrapper {
+        height: 300px;
+    }
+
+    .miniTesti #miniTesti .item {
+        padding: 20px;
+    }
+
+    .miniTesti #miniTesti .item h3 {
+        font-size: 17px;
+        line-height: 1.4;
+    }
+
+    .trusted_partnersection .content_wraper .left_box {
+        height: 150px;
+    }
+
+    .trusted_partnersection .content_wraper {
+        height: auto;
+    }
+
+    .services .wrapper .serviceContent,
+    .services .wrapper {
+        height: 300px;
+    }
+    .homeBanner .content h1{
+        line-height: 1.2;
+        font-size: 32px;
+        padding: 20px 0px 0px 0px;
+    }
+    .homeBanner .content p {
+        font-size: 16px;
+        line-height: 25px;
+        margin-top: 7px;
+    }
+    .miniServices .container{
+        box-shadow: revert !important;
+    }
+    .miniServices .content{
+        margin: 0px 0px 25px 0px;
+    }
+    .nav-pills .nav-link {
+        padding: 8px 20px;
+        font-size: 15px;
+        margin-right: 14px;
+        margin-bottom: 10px;
+    }
+    .industries .tab-content .content h3{
+        font-size: 20px;
+        margin-bottom: 12px;
+    }
+    .specialLearn{
+        font-size: 16px;
+    }
+    .serviceBtn{
+        display: none;
+    }
+    .header .mobile_showcta{
+        display: block;
+        text-align: right;
+    }
+    a.btn.mobile_showcta i {
+        font-size: 30px;
+    }
+    div#offcanvasExample {
+        z-index: 999999;
+        top: 15px;
+    }
+    .services{
+        overflow-x: hidden;
+    }
+    section.miniTesti {
+        overflow-x: hidden;
+    }
+    .trusted_partnersection {
+        overflow-x: hidden;
+    }
+    .mobile_showcontent ul li{
+        margin: 0px 0px 12px 0px;
+        padding: 0px 0px 5px 0px;
+        border-bottom: 1px solid #19878f45;
+    }
+    .pricing_section ul li .flex_box{
+        display: revert;
+    }
+    footer .up_footerbox ul{
+        display: revert;
+    }
+    footer .quick_link ul{
+        display: revert !important;
+        margin: 8px 0px 0px 0px !important;
+    }
+    footer .down_box ul{
+        display: revert;
+    }
+    footer .up_footerbox ul li .flex_box{
+        display: revert;
+    }
+    footer .up_footerbox ul li .social_links{
+        margin: 10px 0px 15px 0px;
+    }
+    footer .up_footerbox ul li .email_box{
+        margin: 20px 0px 0px 0px;
+    }
+    footer .up_footerbox ul li .email_box input{
+        width: 78% !important;
+    }
+    footer .down_box ul li .left_linkbox a{
+        font-size: 13px;
+    }
+    footer .down_box ul li .cookies_box p{
+        padding: 10px 0px 0px 0px;
+    }
+    footer .trial_cta h2{
+        font-size: 27px;
+    }
+    footer .center_box a{
+        padding: 6px 15px;
+    }
+    footer .trial_cta{
+        padding: 40px 0px;
+    }
+    footer .quick_link ul li .link_element h5{
+        margin: 12px 0px 12px 0px;
+    }
+    .circularLoader{
+        width: 100vw;
+    }
+    .thankyou_section::after{
+        width: 150px;
+        height: 150px;
+    }
+    .thankyou_section::before{
+        width: 150px;
+        height: 150px;
+    }
+    .thankyou_section .text_box h1{
+        font-size: 45px;
+    }
+}
+@media only screen and (min-width: 991px) and (max-width: 1199px)  {
+    footer .quick_link ul{
+        display: flex !important;
+    }
+    .trusted_partnersection .content_wraper{
+        height: revert;
+    }
+    .trusted_partnersection .content_wraper .left_box{
+        padding: 60px 0px;
+    }
+}

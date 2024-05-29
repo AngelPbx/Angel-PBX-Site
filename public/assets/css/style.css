@@ -1,0 +1,31 @@
+/* CSS Here */
+@import url('./packages.css');
+@import url('./common.css');
+@import url('./homepage.css');
+@import url('./buttons.css');
+@import url('./thirdparty.css');
+@import url('./header.css');
+@import url('./misc.css');
+@import url('./checkout.css');
+@import url('./accountDetails.css');
+@import url('./form.css');
+@import url('./login.css');
+@import url('./footer.css');
+@import url('./skeleton.css');
+@import url('./profilesPage.css');
+
+/* Responsive CSS */
+@import url('./responsive.css');
+
+:root {
+    --heading: 'Mukta';
+    --paragraph: 'Inter';
+    --main_color: #066fac;
+    --sub_color: #fc5185;
+    --sub-heading: 'Dosis';
+    --sub-para: 'Roboto';
+}
+
+body{
+    font-family: Roboto;
+}

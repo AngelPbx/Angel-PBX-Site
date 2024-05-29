@@ -1,0 +1,38 @@
+.loginPanel {
+    height: 500px;
+    width: 100%;
+}
+
+.loginPanel .imgWrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.6;
+}
+
+.loginPanel .imgWrapper img {
+    width: 100%;
+    height: 100%;
+}
+
+.loginPanel .wrapper {
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.loginPanel .docImgPlaceholder{
+    width: 50px;
+    height: 50px;
+
+}
+
+.loginPanel .docImgPlaceholder img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

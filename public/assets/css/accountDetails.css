@@ -1,0 +1,154 @@
+/*====Account Details code start====*/
+.account_detailssection {
+    padding: 60px 0px;
+    background: #eeeffc;
+}
+
+.account_detailssection .account_box {
+    padding: 20px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    border-radius: 10px;
+    margin: 40px 0px 0px 0px;
+    background: #fff;
+}
+
+.account_detailssection .nav-tabs {
+    border-bottom: none;
+}
+
+.account_detailssection .nav-tabs .nav-link.active {
+    padding: 8px 40px 8px 47px;
+    clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%);
+    color: #fff;
+    background: linear-gradient(135deg, #d41f9c, #ffa78c);
+}
+
+.account_detailssection .nav-tabs .nav-link {
+    padding: 8px 40px 8px 47px;
+    clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%);
+    color: #fff;
+    background: #c0c0c0;
+    margin-right: -15px;
+}
+
+.account_detailssection .account_box form label {
+    /* width: 100% !important; */
+    font-family: 'Lexend';
+    font-size: 12px;
+    margin: 0px 0px 5px 0px;
+}
+
+.account_detailssection .account_box form input {
+    width: 100%;
+    height: 44px;
+    font-family: 'Lexend';
+    font-size: 13px;
+    outline: none;
+    padding-left: 10px;
+    border: 1px solid #7ec9f4;
+    border-radius: 4px;
+    margin: 0px 0px 10px 0px;
+}
+
+.account_detailssection .account_box form select {
+    width: 100%;
+    height: 44px;
+    font-family: 'Lexend';
+    font-size: 13px;
+    outline: none;
+    padding-left: 10px;
+    border: 1px solid #7ec9f4;
+    border-radius: 4px;
+    margin: 0px 0px 10px 0px;
+}
+
+.account_detailssection .account_box form .flex_checkinput {
+    display: flex;
+    align-items: center;
+    margin: 15px 0px 0px 0px
+}
+
+.account_detailssection .account_box form .flex_checkinput input {
+    height: revert !important;
+    width: revert;
+}
+
+.account_detailssection .account_box form .flex_checkinput label {
+    margin: -10px 0px 0px 6px;
+}
+
+.account_detailssection .account_box form .right_box {
+    display: flex;
+    justify-content: right;
+    margin: 20px 0px 0px 0px;
+}
+
+.account_detailssection .account_box form button {
+    border: none;
+    outline: none;
+    padding: 8px 16px;
+    background: linear-gradient(135deg, #871fff, #7ec9f4);
+    color: #fff;
+    border-radius: 4px;
+}
+
+.account_detailssection .account_box form h5 {
+    font-family: 'Lexend';
+    font-weight: 600;
+    font-size: 17px;
+    border-bottom: 1px solid #8628fe24;
+    padding: 0px 0px 5px 12px;
+}
+
+.account_detailssection .account_box .payment_flexbox {
+    display: flex;
+}
+
+.account_detailssection .account_box .payment_flexbox input {
+    width: 18px !important;
+    height: 20px !important;
+}
+
+.account_detailssection .account_box .payment_flexbox label {
+    padding: 0px 0px 0px 10px;
+}
+
+.account_detailssection .account_box p {
+    font-family: var(--paragraph);
+    font-weight: 400;
+    font-size: 13px;
+    padding: 20px 0px 0px 0px;
+}
+
+.account_detailssection .priceBreakup {
+    background: #fff;
+    padding: 20px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    border-radius: 10px;
+    margin: 40px 0px 0px 0px;
+}
+
+/*====End====*/
+
+.account_box .contactDetails h5,
+.account_box .adressDetails h5 {
+    text-transform: uppercase;
+    font-family: var(--sub-para);
+    font-weight: 400;
+    font-size: 18px;
+    padding-bottom: 10px;
+    margin-bottom: 0;
+}
+
+.account_box .contactDetails label,
+.account_box .adressDetails label {
+    font-family: var(--sub-heading);
+    font-weight: 500;
+    font-size: 18px;
+    color: #454545;
+    padding-bottom: 10px;
+}
+
+.account_box .adressDetails {
+    padding-top: 12px;
+}

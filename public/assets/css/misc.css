@@ -1,0 +1,215 @@
+.nav-pills .nav-link.active {
+    background: linear-gradient(135deg, #d41f9c, #ffa78c);
+}
+
+.nav-pills .nav-link {
+    background-color: #066fac10;
+    padding: 10px 25px;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: var(--paragraph);
+    border-radius: 50px;
+    color: #000;
+    transition: 0.3s;
+    margin-right: 15px;
+    letter-spacing: 1px;
+}
+
+.nav-pills .nav-link:hover {
+    background-color: var(--main_color);
+    color: #FFF;
+}
+
+.profileDropdown {
+    /* display: none; */
+    position: absolute;
+    z-index: 999;
+    top: 70px;
+    right: 10px;
+    background-color: #303030;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    color: #fff;
+}
+
+.profileDropdown::after {
+    content: '\f0d8';
+    font-family: 'FontAwesome';
+    color: #303030;
+    position: absolute;
+    top: -22px;
+    right: 35px;
+    font-size: 28px;
+}
+
+.profileDropdown a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.logoutBtn {
+    background-color: #ff0000;
+    padding: 5px 10px;
+    color: #fff !important;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+    width: 100%;
+    margin-top: 7px;
+    text-align: center;
+    font-weight: 500 !important;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.cardDetailsWrapper{
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    height: 100%;
+}
+
+.card-details::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -25px;
+    height: 100%;
+    width: 1px;
+    background-color: #ddd;
+}
+
+.thankyou_section {
+    padding: 0px 0px;
+    background: #eeeffc;
+    position: relative;
+}
+.thankyou_section::after{
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 400px;
+    height: 300px;
+    clip-path: polygon(0 0, 0 100%, 100% 0);
+    background: linear-gradient(135deg, #d41f9c, #ffa78c);
+}
+.thankyou_section::before{
+    content: '';
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    width: 400px;
+    height: 300px;
+    clip-path: polygon(100% 100%, 0 100%, 100% 0);
+    background: linear-gradient(135deg, #871fff, #7ec9f4);
+}
+.thankyou_section img{
+    width: 120px;
+}
+.thankyou_section .text_box {
+    text-align: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.thankyou_section .text_box h1 {
+    color: #000;
+    font-size: 55px;
+    font-family: var(--heading);
+    font-weight: 700;
+}
+
+.thankyou_section .text_box h1 span {
+    color: transparent;
+    background: linear-gradient(135deg, #871fff, #7ec9f4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.thankyou_section .text_box p {
+    font-family: var(--paragraph);
+    font-weight: 400;
+    color: #000;
+    font-size: 13px;
+}
+
+.thankyou_section .text_box h5 {
+    color: #000;
+    font-size: 30px;
+    font-family: var(--heading);
+    font-weight: 700;
+}
+
+.thankyou_section .text_box p a {
+    color: var(--sub_color);
+    text-decoration: none;
+}
+
+.thankyou_section .text_box a.back_tohome {
+    padding: 6px 20px;
+    background: linear-gradient(135deg, #d41f9c, #ffa78c);
+    color: #fff;
+    font-family: var(--heading);
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    margin: 10px 0px 0px 0px;
+}
+.thankyou_section .connect_box{
+    width: 60%;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+.thankyou_section .connect_box h5{
+    font-size: 20px;
+}
+.thankyou_section .connect_box ul{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+.thankyou_section .connect_box ul li a{
+    width: 35px;
+    height: 35px;
+    /* border-radius: 100px; */
+    border: 1px solid;
+    border-image: linear-gradient(135deg, #871fff5c, #7ec9f485) 2;
+    margin: 30px 45px 0px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+.thankyou_section .connect_box ul li a i{
+    font-size: 20px;
+    color: transparent;
+    background: linear-gradient(135deg, #871fff, #7ec9f4);
+    background-clip: text;
+}
+
+.flight_confirmdetails_wrapper .form-group{
+    position: relative;
+}
+
+.error-border{
+    border: 1px solid red;
+}
+
+.form-group .error {
+    position: absolute;
+    left: 0px;
+    bottom: -22px;
+    width: 200px;
+    color: #ff0000;
+}

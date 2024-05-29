@@ -1,0 +1,42 @@
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+    padding: 10px 10px;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.header .wrapper {
+    display: flex;
+}
+
+.header .wrapper .brand {
+    width: 200px;
+    height: 60px;
+}
+
+.header .wrapper .brand img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.header .wrapper ul {
+    display: flex;
+    align-items: center;
+    width: 80%;
+    padding-left: 20px !important;
+}
+
+.header .wrapper li a {
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #000;
+    font-family: Roboto;
+}
+.header .mobile_showcta{
+    display: none;
+}

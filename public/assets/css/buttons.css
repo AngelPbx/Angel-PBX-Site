@@ -1,0 +1,129 @@
+.link {
+    color: #000;
+    font-weight: 600;
+    position: relative;
+    font-family: 'Briem Hand';
+}
+
+.link::after {
+    content: '';
+    position: absolute;
+    background-color: #000;
+    height: 2px;
+    width: 100%;
+    bottom: -3px;
+    left: 0;
+
+}
+
+.serviceBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--main_color);
+    padding: 10px 20px;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: var(--paragraph);
+    width: max-content;
+    margin: 10px auto 0 auto;
+    cursor: pointer;
+}
+.serviceBtn i{
+    font-size: 28px;
+    margin-right: 6px;
+    color: #fff;
+}
+
+.specialLearn {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: max-content;
+    color: #454545;
+    padding: 10px 20px 10px 0;
+    margin-top: 15px;
+    border-radius: 50px;
+    position: relative;
+    z-index: 1;
+    transition: 0.3s;
+    font-size: 18px;
+    font-weight: 500;
+    font-family: var(--paragraph);
+}
+
+.specialLearn::before {
+    content: '';
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #871fff, #7ec9f4);
+    position: absolute;
+    z-index: -1;
+    top: 3px;
+    right: -29px;
+    transition: 0.3s;
+}
+
+.specialLearn::after {
+    content: '\f061';
+    font-family: 'Font Awesome 6 Pro';
+    font-size: 16px;
+    position: absolute;
+    z-index: 0;
+    top: 12px;
+    right: -15px;
+    color: #fff;
+}
+
+.specialLearn:hover {
+    color: #fff;
+}
+
+.specialLearn:hover:before {
+    width: calc(100% + 40px);
+}
+
+.payNow{
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #00892f;
+    border: none;
+    color: white;
+    font-weight: 600;
+    gap: 8px;
+    cursor: pointer;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.103);
+    position: relative;
+    overflow: hidden;
+    transition-duration: .3s;
+}
+
+.payNow::before {
+    width: 100%;
+    height: 130px;
+    position: absolute;
+    content: "";
+    background-color: #7eecf4;
+    border-radius: 50%;
+    left: -100%;
+    top: 0;
+    transition-duration: .3s;
+    mix-blend-mode: hard-light;
+  }
+  
+  .payNow:hover::before {
+    transition-duration: .3s;
+    transform: translate(100%,-50%);
+    border-radius: 0;
+  }
+  
+  .payNow:active {
+    transform: translate(5px,5px);
+    transition-duration: .3s;
+  }

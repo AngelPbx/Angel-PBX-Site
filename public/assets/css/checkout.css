@@ -1,0 +1,184 @@
+.checkout .content .heading {
+    padding: 0px 0 20px 0;
+    border-bottom: 1px solid #b1b1b1;
+}
+
+.checkout .content h3 {
+    font-family: var(--sub-para);
+    font-weight: 500;
+    font-size: 22px;
+}
+
+.checkout .content p {
+    padding-top: 12px;
+    font-family: var(--sub-heading);
+    font-weight: 500;
+    font-size: 18px;
+    color: #454545;
+}
+
+/* --------------------------------------- */
+
+.checkout .planDetails table td {
+    padding: 20px 0;
+    font-family: var(--sub-heading);
+    font-weight: 500;
+    font-size: 18px;
+    color: #454545;
+}
+
+.checkout .planDetails table td:last-child {
+    text-align: end;
+}
+
+/* -------------------------------- */
+.checkout .detailsNavTab {
+    padding-top: 20px;
+}
+
+.checkout .detailsNavTab button {
+    color: #000;
+    font-family: var(--sub-para);
+    font-size: 18px;
+    font-weight: 400;
+    padding: 15px 30px;
+    /* border: 1px solid #ddd;
+    margin-right: 10px; */
+}
+
+.checkout .detailsNavTab button.active {
+    background-color: var(--main_color);
+    font-weight: 500;
+    color: #fff;
+    border: 1px solid var(--main_color);
+}
+
+.checkout .detailsNavTab button.active i {
+    font-weight: 700;
+}
+
+.checkout .detailsNavTab .nav-tabs {
+    border: none;
+}
+
+.checkout .detailsNavTab .tab-content {
+    border: 1px solid var(--main_color);
+    width: 100%;
+}
+
+.checkout .detailsNavTable {
+    width: 100%;
+}
+
+.checkoutInput {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #000;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.checkout .detailsNavTable tr {
+    border-bottom: 1px solid #b1b1b1;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.checkout .detailsNavTable tr td p {
+    padding-top: 5px;
+}
+
+.checkout .detailsNavTable .iconWrapper {
+    width: 40px;
+    height: 40px;
+    margin-right: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.checkout .detailsNavTable .iconWrapper i {
+    font-size: 20px;
+    color: #fff;
+    position: relative;
+    z-index: 1;
+    transform: rotate(-20deg);
+}
+
+/* Shape Thingy */
+.checkout .detailsNavTable .iconWrapper {
+    background: var(--sub_color);
+    position: relative;
+    transform: rotate(20deg);
+    border-radius: 3px;
+}
+
+.checkout .detailsNavTable .iconWrapper:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 40px;
+    width: 40px;
+    background: var(--sub_color);
+    transform: rotate(135deg);
+    border-radius: 3px;
+}
+
+/* Shape Thingy */
+
+/* Price Breakup */
+.priceBreakup h5 {
+    text-transform: uppercase;
+    font-family: var(--sub-para);
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.priceBreakup .heading h3 {
+    font-weight: 500;
+    font-size: 22px;
+    font-family: var(--sub-para);
+}
+
+.priceBreakup .heading {
+    border-bottom: 1px solid #b1b1b1;
+    padding-bottom: 20px;
+}
+
+.priceBreakup .grossTotal {
+    padding-top: 20px;
+}
+
+
+.priceBreakup table {
+    margin: 10px 0;
+    border-bottom: 1px solid #ddd;
+    width: 100%;
+}
+
+.priceBreakup table tr td {
+    font-family: var(--sub-para);
+    font-weight: 400;
+    font-size: 16px;
+    color: #454545;
+}
+
+.priceBreakup table tr td:last-child {
+    text-align: end;
+}
+
+.priceBreakup .netTotal table tr td {
+    font-weight: 700;
+    font-size: 16px;
+    color: #000;
+}
+
+.priceBreakup .terms p {
+    font-family: var(--sub-heading);
+    font-weight: 500;
+    font-size: 18px;
+    color: #454545;
+}
