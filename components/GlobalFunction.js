@@ -6,7 +6,9 @@ const baseUrl = "http://192.168.1.88/ucaas-app/api"
 export async function generalGetFunction (endpoint){
     return axios.get(`${baseUrl}/${endpoint}`
     ).then(res=>{
+        console.log("This is response",res.data);
         return res.data
+        
     }).catch(err=>{
         return err.response.data
         

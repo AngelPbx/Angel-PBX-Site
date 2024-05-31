@@ -4,6 +4,7 @@ import Link from "next/link";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
+import { generalGetFunction } from "@/components/GlobalFunction";
 
 function Price({ initialData }) {
   const router = useRouter();
@@ -991,12 +992,12 @@ function Price({ initialData }) {
 
 export async function getServerSideProps() {
   try {
-    const response = await axios.get(
-      "http://192.168.1.88/ucaas-app/api/packages-all"
+    const response = await generalGetFunction(
+      "packages-all"
     );
     return {
       props: {
-        initialData: response.data.data,
+        initialData: response.data,
       },
     };
   } catch (error) {
