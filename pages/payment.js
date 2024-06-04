@@ -149,6 +149,9 @@ function Payment() {
         transaction_type: "new package",
         subscription_type: packages.subscription_type,
         lead_id:routerData.leadId
+
+
+        
       };
       const apidata = await generalPostFunction("pay", parsedData);
       if (apidata.status) {
