@@ -157,7 +157,7 @@ function Payment() {
       if (apidata.status) {
         dispatch({
           type: "SET_INVOICE",
-          invoiceLink: apidata.invoice_url,
+          invoiceLink: apidata.data.invoice_url,
         });
         dispatch({
           type: "SET_THANKYOUMESSAGE",

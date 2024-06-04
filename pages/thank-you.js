@@ -8,7 +8,7 @@ function ThankYou() {
   const router = useRouter();
   const message = useSelector((state) => state.thankYouMessage);
   const invoiceLink = useSelector((state) => state.invoiceLink);
-  console.log("This is thank you message", message);
+  console.log("This is invoice link",invoiceLink);
   useEffect(() => {
     if (message === null || message === "") {
       router.back();
@@ -16,6 +16,7 @@ function ThankYou() {
   }, [message, router]);
 
   const downloadImage = async (imageUrl, fileName) => {
+    console.log("Download Cloick",imageUrl);
     if (imageUrl) {
       try {
         const response = await fetch(imageUrl);
@@ -63,7 +64,7 @@ function ThankYou() {
                   alt="Mediaringer"
                 />
                 <div className="d-flex justify-content-center align-items-center">
-                  {!invoiceLink === null && !invoiceLink === "" ? (
+                  {!(invoiceLink === null) && !(invoiceLink === "") ? (
                     <div>
                       <a
                         style={{ cursor: "pointer" }}
