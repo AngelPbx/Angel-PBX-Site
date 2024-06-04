@@ -135,7 +135,7 @@ function Payment() {
       const year = new Date().getFullYear();
       const parsedData = {
         account_id: routerData.account_id,
-        package_id: routerData.id,
+        // package_id: routerData.id,
         amount: packages.offer_price,
         type: "card",
         card_number: Number(cardDetails.cardNumber.split(" ").join("")),
@@ -146,12 +146,12 @@ function Payment() {
         ),
         cvc: cardDetails.cvv,
         name: cardDetails.cardName,
-        transaction_type: "new package",
-        subscription_type: packages.subscription_type,
+        // transaction_type: "new package",
+        // subscription_type: packages.subscription_type,
         lead_id:routerData.leadId
 
 
-        
+
       };
       const apidata = await generalPostFunction("pay", parsedData);
       if (apidata.status) {
