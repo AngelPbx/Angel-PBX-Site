@@ -194,7 +194,7 @@ function Price({ initialData }) {
                             <sub>{duration}</sub>
                           </h2>
                           <Link href={`/account-details?id=${basic[0].id}`}>
-                            Add To Cart
+                            Buy Now
                           </Link>
                           {/* <p>$249.00/mo when you renew</p> */}
                           <div className="border_line" />
@@ -244,7 +244,7 @@ function Price({ initialData }) {
                             <sub>/{duration}</sub>
                           </h2>
                           <Link href={`/account-details?id=${standard[0].id}`}>
-                            Add To Cart
+                            Buy Now
                           </Link>
                           {/* <p>$499.00/mo when you renew</p> */}
                           <div className="border_line" />
@@ -297,7 +297,7 @@ function Price({ initialData }) {
                             <sub>/{duration}</sub>
                           </h2>
                           <Link href={`/account-details?id=${advance[0].id}`}>
-                            Add To Cart
+                            Buy Now
                           </Link>
                           {/* <p>$1,279.00/mo when you renew</p> */}
                           <div className="border_line" />

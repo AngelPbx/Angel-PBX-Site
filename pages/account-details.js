@@ -156,14 +156,14 @@ function AccountDetails() {
         status:"inactive",
         state:formData.state
       };
-      const apiData = await generalPostFunction("account-store",parsedData)
+      const apiData = await generalPostFunction("lead-store",parsedData)
       if(apiData.status){
         setLoading(false)
         dispatch({
           type:"SET_THANKYOUMESSAGE",
           thankYouMessage:"Your Response is recorder, you will get a mail for document Upload "
         })
-        router.push({pathname:"/thank-you"})
+        router.push({pathname:`/payment?id=${routerData.id}&leadId=${apiData.data.id}`})
         setFormData(prevData=>({
           ...prevData,
           companyName: "",
@@ -343,6 +343,7 @@ function AccountDetails() {
                             <input
                               onChange={handleChange}
                               name="contactNumber"
+                              max="999999"
                               type="number"
                               placeholder="Enter Your Number"
                             />
