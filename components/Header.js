@@ -83,10 +83,7 @@ function Header() {
                 </div>
                 <ul>
                   <li>
-                    <Link href="/thank-you" onClick={()=>dispatch({
-                      type:"SET_THANKYOUMESSAGE",
-                      thankYouMessage:"This is just a demo thankyou page whicj is generated dynamically"
-                    })}>Products</Link>
+                    <Link href="/">Products</Link>
                   </li>
                   <li>
                     <Link href="/">Solutions</Link>
