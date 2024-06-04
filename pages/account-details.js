@@ -163,7 +163,7 @@ function AccountDetails() {
           type:"SET_THANKYOUMESSAGE",
           thankYouMessage:"Your Response is recorder, you will get a mail for document Upload "
         })
-        router.push({pathname:`/payment?id=${routerData.id}&leadId=${apiData.data.id}`})
+        router.push({pathname:`/payment`,query:{id:routerData.id,leadId:apiData.data.id}})
         setFormData(prevData=>({
           ...prevData,
           companyName: "",
