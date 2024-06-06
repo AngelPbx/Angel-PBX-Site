@@ -5,6 +5,7 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 import { generalGetFunction } from "@/components/GlobalFunction";
+import Head from "next/head";
 
 function Price({ initialData }) {
   const router = useRouter();
@@ -50,7 +51,9 @@ function Price({ initialData }) {
   console.log("Standard", standard);
   console.log("Advance", advance);
   return (
+    <>
     <div className="main">
+
       {/*===pricing banner code start===*/}
       <section className="pricing_banner">
         <div className="container">
@@ -987,6 +990,7 @@ function Price({ initialData }) {
       {/*====jquery links====*/}
       {/*====owl slider links====*/}
     </div>
+    </>
   );
 }
 
