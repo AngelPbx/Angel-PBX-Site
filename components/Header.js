@@ -15,7 +15,6 @@ function Header() {
   const [token, setToken] = useState();
   const data = useSelector((state) => state.token);
   const dispatch = useDispatch()
-  // console.log("This is data", token);
   useEffect(() => {
     if (data === "" || data === undefined || data === null) {
       const loclData = localStorage.getItem("token");
@@ -53,6 +52,7 @@ function Header() {
     // Render a placeholder or nothing during SSR
     return null;
   }
+
 
   async function handleLogOut(){
     const apiData = await authGetFunction("auth/account-logout",token)
