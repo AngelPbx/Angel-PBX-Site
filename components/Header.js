@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { authGetFunction, generalGetFunction, logOutFunction } from "./GlobalFunction";
 import { toast } from "react-toastify";
 import { useRouter } from "next/router";
+import CircularLoader from "./CircularLoader";
 
 function Header() {
   const router = useRouter()
@@ -14,6 +15,7 @@ function Header() {
   const wrapperRef = useRef(null);
   const [token, setToken] = useState();
   const data = useSelector((state) => state.token);
+  const [loading,setLoading]=useState(false)
   const dispatch = useDispatch()
   useEffect(() => {
     if (data === "" || data === undefined || data === null) {
@@ -66,6 +68,12 @@ function Header() {
     localStorage.clear()
     router.push({pathname:"/"})
   }
+
+  const handleClick = async () => {
+    setLoading(true);
+    await router.push('/price');
+    setLoading(false);
+  };
   return (
     <>
       <section className="header">
@@ -89,7 +97,7 @@ function Header() {
                     <Link href="/">Solutions</Link>
                   </li>
                   <li>
-                    <Link href="/price">Plans &amp; Pricing</Link>
+                    <Link href="/price" onClick={handleClick}>Plans &amp; Pricing</Link>
                   </li>
                   <li>
                     <Link href="/">Resources</Link>
@@ -151,6 +159,7 @@ function Header() {
           </div>
         </div>
       </section>
+      {loading?<CircularLoader />:""}
     </>
   );
 }
