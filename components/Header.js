@@ -102,16 +102,20 @@ function Header() {
                   <li>
                     <Link href="/">Resources</Link>
                   </li>
+                  <li>
+                    <Link href="/">Contact Sales</Link>
+                  </li>
                 </ul>
               </div>
             </div>
             <div className="col-xl-2 col-6 d-flex">
               <div style={{ width: "max-content", marginRight: 20 }}>
-                <Link href="tel:000" className="serviceBtn m-0">
-                  Call Sales
-                </Link>
+                <a target="_blank" href="http://192.168.1.88:3000" className="specialLearn m-0">
+                  Go To App
+                </a>
               </div>
-              <p
+
+              {/* <p
                 style={{cursor:"pointer"}}
                 onClick={toggleDropdown}
                 className="profileHolderHeader"
@@ -119,24 +123,24 @@ function Header() {
                 <p>
                   <i className="fa-solid fa-user"></i>
                 </p>
-              </p>
-              {dropDown && (
-                <div ref={wrapperRef} className="profileDropdown">
-                  {login && (
+              </p> */}
+              {/* {dropDown && (
+                <div ref={wrapperRef} className="profileDropdown"> */}
+                  {/* {login && (
                     <div  onClick={()=>{toggleDropdown()}}>
                       <label className="me-2">
                         <i className="fa-duotone fa-user" />
                       </label>
                       <Link href="/dashboard">My Profile</Link>
                     </div>
-                  )}
+                  )} */}
                   {/* <div>
                     <label className="me-2">
                       <i className="fa-duotone fa-lock" />
                     </label>
                     <a href="/change-password">Change Password</a>
                   </div> */}
-                  {login?<div
+                  {/* {login?<div
                     style={{cursor:"pointer"}}
                     className="d-flex justify-content-center"
                     onClick={()=>{toggleDropdown();handleLogOut()}}
@@ -151,10 +155,10 @@ function Header() {
                     <p className="logoutBtn">
                       <i className="fa-solid fa-power-off me-1" /> Login
                     </p>
-                  </Link>}
+                  </Link>} */}
                   
-                </div>
-              )}
+                {/* </div>
+              )} */}
             </div>
           </div>
         </div>

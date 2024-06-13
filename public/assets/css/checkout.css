@@ -134,12 +134,12 @@
     text-transform: uppercase;
     font-family: var(--sub-para);
     font-weight: 400;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .priceBreakup .heading h3 {
     font-weight: 500;
-    font-size: 22px;
+    font-size: 18px;
     font-family: var(--sub-para);
 }
 
@@ -162,7 +162,7 @@
 .priceBreakup table tr td {
     font-family: var(--sub-para);
     font-weight: 400;
-    font-size: 16px;
+    font-size: 14px;
     color: #454545;
 }
 
@@ -172,13 +172,17 @@
 
 .priceBreakup .netTotal table tr td {
     font-weight: 700;
-    font-size: 16px;
+    font-size: 15px;
     color: #000;
 }
 
 .priceBreakup .terms p {
     font-family: var(--sub-heading);
     font-weight: 500;
-    font-size: 18px;
+    font-size: 14px;
     color: #454545;
+}
+
+.priceBreakup  .formLabel{
+    font-size: 14px;
 }

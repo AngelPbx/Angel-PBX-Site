@@ -74,16 +74,6 @@
     height: 100%;
 }
 
-.card-details::after{
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -25px;
-    height: 100%;
-    width: 1px;
-    background-color: #ddd;
-}
-
 .thankyou_section {
     padding: 0px 0px;
     background: #eeeffc;
@@ -212,4 +202,8 @@
     bottom: -22px;
     width: 200px;
     color: #ff0000;
+}
+
+.cardDetailsWrapper .rccs__card{
+    height: 150px;
 }

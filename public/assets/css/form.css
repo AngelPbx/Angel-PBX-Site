@@ -41,3 +41,16 @@ input[type="file"] {
     overflow: hidden;
     text-overflow: ellipsis;
   }
+
+  label.review-label {
+    font-size: 14px;
+}
+
+.form-group .form-control{
+    font-size: 15px;
+    padding: 5px 10px;
+}
+
+.cardDetailsWrapper h5{
+    font-size: 16px;
+}

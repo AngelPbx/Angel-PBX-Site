@@ -148,10 +148,7 @@ function Payment() {
         name: cardDetails.cardName,
         // transaction_type: "new package",
         // subscription_type: packages.subscription_type,
-        lead_id:routerData.leadId
-
-
-
+        lead_id: routerData.leadId,
       };
       const apidata = await generalPostFunction("pay", parsedData);
       if (apidata.status) {
@@ -175,89 +172,156 @@ function Payment() {
   return (
     <div className="main">
       <div className="container py-4">
-        <div className="flight_confirmdetails_wrapper row gx-5">
-          <div className="col-12 border-start border-4 border-success mb-3 mx-3 px-3">
-            <h5>Credit Card Information</h5>
-          </div>
-
-          <div className="col-xl-8">
-            <div className="cardDetailsWrapper row">
-              <div className="col-xl-5 my-auto">
-                <Cards
-                  number={cardDetails.cardNumber}
-                  expiry={cardDetails.expiryDate}
-                  cvc={cardDetails.cvv}
-                  name={cardDetails.cardName}
-                  focused={cardDetails.focused}
-                />
+        <div className="flight_confirmdetails_wrapper row">
+          <div className="col-xl-4">
+            <div className="cardDetailsWrapper">
+              <div className="col-12 border-start border-4 border-success mb-3 px-3">
+                <h5>Billing Address</h5>
               </div>
-              <div className="card-details col-xl-6 position-relative">
-                <div className="card1 card-body1">
-                  <div className="row">
-                    <div className="col-xl-12">
-                      <div className="form-group">
-                        <label className="review-label">
-                          Card Holder's Name
-                          <span style={{ color: "red" }}>*</span>
-                        </label>
-                        <input
-                          placeholder="Card Holder's Name"
-                          className={`form-control travellerdetails ${
-                            errorCard.cardName ? "error-border" : ""
-                          }`}
-                          name="cardName"
-                          id="traveller_name_on_card"
-                          type="text"
-                          autoComplete="off"
-                          onChange={(e) => {
-                            handleChange(e);
-                          }}
-                          onFocus={() =>
-                            setCardDetails((prevData) => ({
-                              ...prevData,
-                              focused: "",
-                            }))
-                          }
-                        />
-                        <small className="text-muted p-1">
-                          (As it appears on your credit card)
-                        </small>
-                      </div>
-                    </div>
-                    <div className="col-xl-12 mt-1 mb-4">
-                      <div className="form-group">
-                        <label className="review-label">
-                          Card Number
-                          <span style={{ color: "red" }}>*</span>
-                        </label>
-                        <div className="tvlrFormField make_relative card-reader position-relative">
-                          <span id="CreditCardImg" className="CreditCardImg" />
-                          <svg
-                            className="cardImage position-absolute"
-                            style={{
-                              width: 35,
-                              height: 35,
-                              top: "-2px",
-                              right: 2,
-                            }}
-                            {...getCardImageProps({ images })}
-                          />
+              <div className="row">
+                <div className="form-group mb-1">
+                  <label className="review-label">
+                    Full Name
+                    <span style={{ color: "red" }}>*</span>
+                  </label>
+                  <input
+                    placeholder="Name"
+                    className={`form-control travellerdetails ${
+                      errorCard.cardName ? "error-border" : ""
+                    }`}
+                    type="text"
+                  />
+                </div>
+                <div className="form-group mb-1">
+                  <label className="review-label">
+                    Phone
+                    <span style={{ color: "red" }}>*</span>
+                  </label>
+                  <input
+                    placeholder="Phone number"
+                    className={`form-control travellerdetails ${
+                      errorCard.cardName ? "error-border" : ""
+                    }`}
+                    type="number"
+                  />
+                </div>
+                <div className="form-group mb-1">
+                  <label className="review-label">
+                    Email
+                    <span style={{ color: "red" }}>*</span>
+                  </label>
+                  <input
+                    placeholder="Email Address"
+                    className={`form-control travellerdetails ${
+                      errorCard.cardName ? "error-border" : ""
+                    }`}
+                    type="email"
+                  />
+                </div>
+                <div className="form-group mb-1">
+                  <label className="review-label">
+                    Address
+                    <span style={{ color: "red" }}>*</span>
+                  </label>
+                  <input
+                    placeholder="Full address"
+                    className={`form-control travellerdetails ${
+                      errorCard.cardName ? "error-border" : ""
+                    }`}
+                    type="text"
+                  />
+                </div>
+                <div className="form-group col-xl-6 mb-1">
+                  <label className="review-label">
+                    City
+                    <span style={{ color: "red" }}>*</span>
+                  </label>
+                  <input
+                    placeholder="City"
+                    className={`form-control travellerdetails ${
+                      errorCard.cardName ? "error-border" : ""
+                    }`}
+                    type="text"
+                  />
+                </div>
+                <div className="form-group col-xl-6 mb-1">
+                  <label className="review-label">
+                    State
+                    <span style={{ color: "red" }}>*</span>
+                  </label>
+                  <input
+                    placeholder="State"
+                    className={`form-control travellerdetails ${
+                      errorCard.cardName ? "error-border" : ""
+                    }`}
+                    type="text"
+                  />
+                </div>
+                <div className="form-group mb-1">
+                  <label className="review-label">
+                    Zip Code
+                    <span style={{ color: "red" }}>*</span>
+                  </label>
+                  <input
+                    placeholder="Zip Code"
+                    className={`form-control travellerdetails ${
+                      errorCard.cardName ? "error-border" : ""
+                    }`}
+                    type="text"
+                  />
+                </div>
+                <div className="form-group mb-1">
+                  <label className="review-label">
+                    Country
+                    <span style={{ color: "red" }}>*</span>
+                  </label>
+                  <input
+                    placeholder="Country"
+                    className={`form-control travellerdetails ${
+                      errorCard.cardName ? "error-border" : ""
+                    }`}
+                    type="text"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="col-xl-8 row gx-3">
+            <div className="col-xl-7">
+              <div className="cardDetailsWrapper">
+                <div className="col-12 border-start border-4 border-success mb-3 px-3">
+                  <h5>Credit Card Information</h5>
+                </div>
+                <div className="mb-4">
+                  <Cards
+                    number={cardDetails.cardNumber}
+                    expiry={cardDetails.expiryDate}
+                    cvc={cardDetails.cvv}
+                    name={cardDetails.cardName}
+                    focused={cardDetails.focused}
+                  />
+                </div>
+                <div className="card-details position-relative">
+                  <div className="card1 card-body1">
+                    <div className="row">
+                      <div className="col-xl-12">
+                        <div className="form-group">
+                          <label className="review-label">
+                            Card Holder's Name
+                            <span style={{ color: "red" }}>*</span>
+                          </label>
                           <input
-                            placeholder="Card Number"
-                            maxLength={16}
+                            placeholder="Card Holder's Name"
                             className={`form-control travellerdetails ${
-                              errorCard.cardNumber ? "error-border" : ""
+                              errorCard.cardName ? "error-border" : ""
                             }`}
-                            name="cardNumber"
-                            id="traveller_card_number"
+                            name="cardName"
+                            id="traveller_name_on_card"
                             type="text"
-                            // value={cardNumber}
-
-                            {...getCardNumberProps({
-                              onChange: (e) => {
-                                handleChange(e);
-                              },
-                            })}
+                            autoComplete="off"
+                            onChange={(e) => {
+                              handleChange(e);
+                            }}
                             onFocus={() =>
                               setCardDetails((prevData) => ({
                                 ...prevData,
@@ -265,43 +329,43 @@ function Payment() {
                               }))
                             }
                           />
-                          <small className="error">
-                            {errorCard.cardNumber
-                              ? "Enter valid card number"
-                              : ""}
-                          </small>
-                          <div style={{ clear: "both" }} />
-                          <p className="status">
-                            <span className="status_icon" />
-                            <span className="status_message" />
-                          </p>
                         </div>
                       </div>
-                    </div>
-                    <div className="col-xl-6 mt-1 mb-4">
-                      <div className="row">
-                        <div className="col-12">
-                          <div className="form-group">
-                            <label className="review-label text-nowrap">
-                              Expiry Date
-                              <span style={{ color: "red" }}>*</span>
-                            </label>
+                      <div className="col-xl-12 mt-1 mb-3">
+                        <div className="form-group">
+                          <label className="review-label">
+                            Card Number
+                            <span style={{ color: "red" }}>*</span>
+                          </label>
+                          <div className="tvlrFormField make_relative card-reader position-relative">
+                            <span
+                              id="CreditCardImg"
+                              className="CreditCardImg"
+                            />
+                            <svg
+                              className="cardImage position-absolute"
+                              style={{
+                                width: 35,
+                                height: 35,
+                                top: "-2px",
+                                right: 2,
+                              }}
+                              {...getCardImageProps({ images })}
+                            />
                             <input
-                              placeholder="YEAR"
-                              className={`form-control travellerdetails payment_exp_date ${
-                                errorCard.expiryDate ? "error-border" : ""
+                              placeholder="Card Number"
+                              maxLength={16}
+                              className={`form-control travellerdetails ${
+                                errorCard.cardNumber ? "error-border" : ""
                               }`}
-                              name="traveller_card_cvv"
-                              type="number"
-                              {...getExpiryDateProps({
+                              name="cardNumber"
+                              id="traveller_card_number"
+                              type="text"
+                              // value={cardNumber}
+
+                              {...getCardNumberProps({
                                 onChange: (e) => {
                                   handleChange(e);
-                                  // setExpiryDate(
-                                  //   e.target.value
-                                  //     .trim()
-                                  //     .replace(/\s+/g, "")
-                                  // );
-                                  // setErrorExpiryDate(false);
                                 },
                               })}
                               onFocus={() =>
@@ -312,133 +376,183 @@ function Payment() {
                               }
                             />
                             <small className="error">
-                              {erroredInputs.expiryDate
-                                ? "Enter correct Expiry Date"
+                              {errorCard.cardNumber
+                                ? "Enter valid card number"
                                 : ""}
                             </small>
+                            <div style={{ clear: "both" }} />
+                            <p className="status">
+                              <span className="status_icon" />
+                              <span className="status_message" />
+                            </p>
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <div className="col-xl-6 mt-1 mb-4">
-                      <div className="form-group">
-                        <label className="review-label">
-                          CVV Code
-                          <span style={{ color: "red" }}>*</span>
-                        </label>
-                        {/* <input type="text" className="form-control"  placeholder="0000"> */}
-                        <div className="position-relative">
-                          <input
-                            placeholder="cvv"
-                            className={`form-control travellerdetails payment_exp_date ${
-                              errorCard.cvv ? "error-border" : ""
-                            }`}
-                            name="cvv"
-                            // id="traveller_card_cvv"
-                            type="number"
-                            onChange={(e) => {
-                              handleChange(e);
-                              // if (
-                              //   cvv.length === 2 ||
-                              //   cvv.length === 3
-                              // ) {
-                              //   setErrorCvv(false);
-                              // } else {
-                              //   setErrorCvv(true);
-                              // }
-                            }}
-                            onFocus={() =>
-                              setCardDetails((prevData) => ({
-                                ...prevData,
-                                focused: "cvc",
-                              }))
-                            }
-                          />
-                          <small className="error">
-                            {errorCard.cvv ? "Enter correct CVV" : ""}
-                          </small>
-                          <small
-                            className="text-muted p-1"
-                            style={{
-                              position: "absolute",
-                              right: 2,
-                              top: 2,
-                            }}
-                          >
-                            {/* 3 digit number from your card &nbsp;{" "} */}
-                            {/* <img
+                      <div className="col-xl-6 mt-1 mb-3">
+                        <div className="row">
+                          <div className="col-12">
+                            <div className="form-group">
+                              <label className="review-label text-nowrap">
+                                Expiry Date
+                                <span style={{ color: "red" }}>*</span>
+                              </label>
+                              <input
+                                placeholder="YEAR"
+                                className={`form-control travellerdetails payment_exp_date ${
+                                  errorCard.expiryDate ? "error-border" : ""
+                                }`}
+                                name="traveller_card_cvv"
+                                type="number"
+                                {...getExpiryDateProps({
+                                  onChange: (e) => {
+                                    handleChange(e);
+                                    // setExpiryDate(
+                                    //   e.target.value
+                                    //     .trim()
+                                    //     .replace(/\s+/g, "")
+                                    // );
+                                    // setErrorExpiryDate(false);
+                                  },
+                                })}
+                                onFocus={() =>
+                                  setCardDetails((prevData) => ({
+                                    ...prevData,
+                                    focused: "",
+                                  }))
+                                }
+                              />
+                              <small className="error">
+                                {erroredInputs.expiryDate
+                                  ? "Enter correct Expiry Date"
+                                  : ""}
+                              </small>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="col-xl-6 mt-1 mb-3">
+                        <div className="form-group">
+                          <label className="review-label">
+                            CVV Code
+                            <span style={{ color: "red" }}>*</span>
+                          </label>
+                          {/* <input type="text" className="form-control"  placeholder="0000"> */}
+                          <div className="position-relative">
+                            <input
+                              placeholder="cvv"
+                              className={`form-control travellerdetails payment_exp_date ${
+                                errorCard.cvv ? "error-border" : ""
+                              }`}
+                              name="cvv"
+                              // id="traveller_card_cvv"
+                              type="number"
+                              onChange={(e) => {
+                                handleChange(e);
+                                // if (
+                                //   cvv.length === 2 ||
+                                //   cvv.length === 3
+                                // ) {
+                                //   setErrorCvv(false);
+                                // } else {
+                                //   setErrorCvv(true);
+                                // }
+                              }}
+                              onFocus={() =>
+                                setCardDetails((prevData) => ({
+                                  ...prevData,
+                                  focused: "cvc",
+                                }))
+                              }
+                            />
+                            <small className="error">
+                              {errorCard.cvv ? "Enter correct CVV" : ""}
+                            </small>
+                            <small
+                              className="text-muted p-1"
+                              style={{
+                                position: "absolute",
+                                right: 2,
+                                top: 2,
+                              }}
+                            >
+                              {/* 3 digit number from your card &nbsp;{" "} */}
+                              {/* <img
                                                 width={"44"}
                                                 height={"28"}
                                                 src={require("./card.gif")}
                                                 alt="card"
                                             /> */}
-                          </small>
+                            </small>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div className="col-12">
-                      <button onClick={handleSubmit} className="payNow">
-                        {" "}
-                        Pay Now <i class="mx-2 fa-duotone fa-credit-card"></i>
-                      </button>
+                      <div className="col-12 mb-2">
+                        <input type="checkbox" />
+                        <label class="formLabel ms-2">Save this card for future use</label>
+                      </div>
+                      <div className="col-12">
+                        <button onClick={handleSubmit} className="payNow">
+                          {" "}
+                          Pay Now <i class="mx-2 fa-duotone fa-credit-card"></i>
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div className="col-xl-4 account_detailssection py-0">
-            <div className="priceBreakup mt-0 h-100">
-              <div className="heading">
-                <h3>Your Cart Details</h3>
-              </div>
-              <div className="grossTotal">
-                <h5>PACKAGE COST</h5>
-                <table>
-                  <tbody>
-                    <tr>
-                      <td>Actual Price</td>
-                      <td>${packages?.regular_price}</td>
-                    </tr>
-                    {/* <tr>
+            <div className="col-xl-5 account_detailssection py-0">
+              <div className="priceBreakup mt-0 h-100">
+                <div className="heading">
+                  <h3>Your Cart Details</h3>
+                </div>
+                <div className="grossTotal">
+                  <h5>PACKAGE COST</h5>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td>Actual Price</td>
+                        <td>${packages?.regular_price}</td>
+                      </tr>
+                      {/* <tr>
                         <td>Included Local Company Number</td>
                         <td>$0.00</td>
                       </tr> */}
-                    <tr>
-                      <td>Taxes</td>
-                      <td>Calculated at Checkout</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div className="discounts">
-                <h5>Discounts</h5>
-                <table>
-                  <tbody>
-                    <tr>
-                      <td>
-                        {(
-                          ((packages?.regular_price - packages?.offer_price) *
-                            100) /
-                          packages?.regular_price
-                        ).toFixed(2)}
-                        % Off
-                      </td>
-                      <td>
-                        -${packages?.regular_price - packages?.offer_price}
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div className="netTotal">
-                <table>
-                  <tbody>
-                    <tr>
-                      <td>Offer Price</td>
-                      <td>${packages?.offer_price}</td>
-                    </tr>
-                    {/* <tr>
+                      <tr>
+                        <td>Taxes</td>
+                        <td>Calculated at Checkout</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div className="discounts">
+                  <h5>Discounts</h5>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td>
+                          {(
+                            ((packages?.regular_price - packages?.offer_price) *
+                              100) /
+                            packages?.regular_price
+                          ).toFixed(2)}
+                          % Off
+                        </td>
+                        <td>
+                          -${packages?.regular_price - packages?.offer_price}
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div className="netTotal">
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td>Offer Price</td>
+                        <td>${packages?.offer_price}</td>
+                      </tr>
+                      {/* <tr>
                         <td>First bill</td>
                         <td>$13.99</td>
                       </tr>
@@ -446,16 +560,17 @@ function Payment() {
                         <td>Monthly Bill</td>
                         <td>$13.99/mo</td>
                       </tr> */}
-                  </tbody>
-                </table>
-              </div>
-              <div className="terms">
-                <p>**{packages?.description}</p>
-              </div>
-              <div id="checkout" style={{ display: "none" }}>
-                <Link href="/" className="serviceBtn w-100 py-3">
-                  Checkout
-                </Link>
+                    </tbody>
+                  </table>
+                </div>
+                <div className="terms">
+                  <p>**{packages?.description}</p>
+                </div>
+                <div id="checkout" style={{ display: "none" }}>
+                  <Link href="/" className="serviceBtn w-100 py-3">
+                    Checkout
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
