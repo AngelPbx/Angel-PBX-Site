@@ -21,6 +21,41 @@ function Payment() {
   const routerData = router.query;
   const [packages, setPackages] = useState();
   const [loading, setLoading] = useState(false);
+  const [saveCard,setSaveCard]=useState(false)
+  const [billing,setBilling]=useState({
+    name:"",
+    phone:"",
+    email:"",
+    address:"",
+    city:"",
+    state:"",
+    zip:"",
+    country:""
+  })
+  const [errorBilling,setErrorBilling]=useState({
+    name:false,
+    phone:false,
+    email:false,
+    address:false,
+    city:false,
+    state:false,
+    zip:false,
+    country:false
+  })
+
+  function billingChnage(e){
+    const name = e.target.name
+    const value = e.target.value
+   setBilling(prevData=>({
+    ...prevData,
+    [name]:value
+   }))
+   setErrorBilling(prevData=>({
+    ...prevData,
+    [name]:false
+   }))
+
+  }
 
   useEffect(() => {
     if (router.isReady) {
@@ -100,6 +135,30 @@ function Payment() {
 
   async function handleSubmit() {
     cardValidator.number(cardNumber).isValid;
+    Object.keys(billing).map((item)=>{
+     
+      if(billing[item]===""){
+        setErrorBilling(prevData=>({
+          ...prevData,
+          [item]:true
+        }))
+      }else if(item==="phone"){
+        // console.log(billing[item].length,"This is loop",item);
+        if(billing[item].length>15 || billing[item].length<8){
+          setErrorBilling(prevData=>({
+            ...prevData,
+            phone:true
+          }))
+        }
+      }else if(item==="email"){
+        if(!(billing["email"].includes("@")) && !(billing["email"].includes("."))){
+          setErrorBilling(prevData=>({
+            ...prevData,
+            email:true
+          }))
+        }
+      }
+    })
     if (!cardValidator.number(cardDetails.cardNumber).isValid) {
       setErrorCard((prevData) => ({
         ...prevData,
@@ -124,18 +183,42 @@ function Payment() {
         cardName: true,
       }));
     }
-    console.log("Tghis is card validator");
+    console.log((Object.keys(billing).map((item)=>{
+      if(billing[item]===""){
+        return(true)
+      }else if(item==="phone"){
+        if(billing[item].length>15 || billing[item].length<8){
+          return(true)
+        }
+      }else if(item==="email"){
+        if(!(billing[item].includes("@") || billing[item].includes("."))){
+          return(true)
+        }
+      }
+    })).includes(true))
     if (
       !(cardDetails.cardName === "") &&
       !(cardDetails.expiryDate === "") &&
       !(cardDetails.cvv.length < 3 || cardDetails.cvv.length > 6) &&
-      cardValidator.number(cardDetails.cardNumber).isValid
+      cardValidator.number(cardDetails.cardNumber).isValid &&
+      !((Object.keys(billing).map((item)=>{
+        if(billing[item]===""){
+          return(true)
+        }else if(item==="phone"){
+          if(billing[item].length>15 || billing[item].length<8){
+            return(true)
+          }
+        }else if(item==="email"){
+          if(!(billing[item].includes("@") || billing[item].includes("."))){
+            return(true)
+          }
+        }
+      })).includes(true))
     ) {
       setLoading(true);
       const year = new Date().getFullYear();
       const parsedData = {
         account_id: routerData.account_id,
-        // package_id: routerData.id,
         amount: packages.offer_price,
         type: "card",
         card_number: Number(cardDetails.cardNumber.split(" ").join("")),
@@ -146,9 +229,16 @@ function Payment() {
         ),
         cvc: cardDetails.cvv,
         name: cardDetails.cardName,
-        // transaction_type: "new package",
-        // subscription_type: packages.subscription_type,
         lead_id: routerData.leadId,
+        fullname:billing.name,
+        contact_no:billing.phone,
+        email:billing.email,
+        address:billing.address,
+        zip:billing.zip,
+        city:billing.city,
+        state:billing.state,
+        country:billing.country,
+        save_card:saveCard,
       };
       const apidata = await generalPostFunction("pay", parsedData);
       if (apidata.status) {
@@ -158,7 +248,7 @@ function Payment() {
         });
         dispatch({
           type: "SET_THANKYOUMESSAGE",
-          thankYouMessage: `Your Payment is successfull with transaction id ${apidata.data.transaction_id} you will get an email soon. You can download invoice from my profile menue.`,
+          thankYouMessage: `Your Payment is successfull with transaction id ${apidata.data.transaction_id} you will get an email soon. You can download invoice now.`,
         });
         router.push({
           pathname: "/thank-you",
@@ -169,6 +259,8 @@ function Payment() {
       }
     }
   }
+
+  
   return (
     <div className="main">
       <div className="container py-4">
@@ -186,9 +278,11 @@ function Payment() {
                   </label>
                   <input
                     placeholder="Name"
+                    name="name"
                     className={`form-control travellerdetails ${
-                      errorCard.cardName ? "error-border" : ""
+                      errorBilling.name ? "error-border" : ""
                     }`}
+                    onChange={(e)=>billingChnage(e)}
                     type="text"
                   />
                 </div>
@@ -199,9 +293,11 @@ function Payment() {
                   </label>
                   <input
                     placeholder="Phone number"
+                    name="phone"
                     className={`form-control travellerdetails ${
-                      errorCard.cardName ? "error-border" : ""
+                      errorBilling.phone ? "error-border" : ""
                     }`}
+                    onChange={(e)=>billingChnage(e)}
                     type="number"
                   />
                 </div>
@@ -212,9 +308,11 @@ function Payment() {
                   </label>
                   <input
                     placeholder="Email Address"
+                    name="email"
                     className={`form-control travellerdetails ${
-                      errorCard.cardName ? "error-border" : ""
+                      errorBilling.email ? "error-border" : ""
                     }`}
+                    onChange={(e)=>billingChnage(e)}
                     type="email"
                   />
                 </div>
@@ -225,9 +323,11 @@ function Payment() {
                   </label>
                   <input
                     placeholder="Full address"
+                    name="address"
                     className={`form-control travellerdetails ${
-                      errorCard.cardName ? "error-border" : ""
+                      errorBilling.address ? "error-border" : ""
                     }`}
+                    onChange={(e)=>billingChnage(e)}
                     type="text"
                   />
                 </div>
@@ -238,9 +338,11 @@ function Payment() {
                   </label>
                   <input
                     placeholder="City"
+                    name="city"
                     className={`form-control travellerdetails ${
-                      errorCard.cardName ? "error-border" : ""
+                      errorBilling.city ? "error-border" : ""
                     }`}
+                    onChange={(e)=>billingChnage(e)}
                     type="text"
                   />
                 </div>
@@ -251,9 +353,11 @@ function Payment() {
                   </label>
                   <input
                     placeholder="State"
+                    name="state"
                     className={`form-control travellerdetails ${
-                      errorCard.cardName ? "error-border" : ""
+                      errorBilling.state ? "error-border" : ""
                     }`}
+                    onChange={(e)=>billingChnage(e)}
                     type="text"
                   />
                 </div>
@@ -264,9 +368,11 @@ function Payment() {
                   </label>
                   <input
                     placeholder="Zip Code"
+                    name="zip"
                     className={`form-control travellerdetails ${
-                      errorCard.cardName ? "error-border" : ""
+                      errorBilling.zip ? "error-border" : ""
                     }`}
+                    onChange={(e)=>billingChnage(e)}
                     type="text"
                   />
                 </div>
@@ -277,9 +383,11 @@ function Payment() {
                   </label>
                   <input
                     placeholder="Country"
+                    name="country"
                     className={`form-control travellerdetails ${
-                      errorCard.cardName ? "error-border" : ""
+                      errorBilling.country ? "error-border" : ""
                     }`}
+                    onChange={(e)=>billingChnage(e)}
                     type="text"
                   />
                 </div>
@@ -406,12 +514,6 @@ function Payment() {
                                 {...getExpiryDateProps({
                                   onChange: (e) => {
                                     handleChange(e);
-                                    // setExpiryDate(
-                                    //   e.target.value
-                                    //     .trim()
-                                    //     .replace(/\s+/g, "")
-                                    // );
-                                    // setErrorExpiryDate(false);
                                   },
                                 })}
                                 onFocus={() =>
@@ -436,7 +538,6 @@ function Payment() {
                             CVV Code
                             <span style={{ color: "red" }}>*</span>
                           </label>
-                          {/* <input type="text" className="form-control"  placeholder="0000"> */}
                           <div className="position-relative">
                             <input
                               placeholder="cvv"
@@ -444,18 +545,9 @@ function Payment() {
                                 errorCard.cvv ? "error-border" : ""
                               }`}
                               name="cvv"
-                              // id="traveller_card_cvv"
                               type="number"
                               onChange={(e) => {
                                 handleChange(e);
-                                // if (
-                                //   cvv.length === 2 ||
-                                //   cvv.length === 3
-                                // ) {
-                                //   setErrorCvv(false);
-                                // } else {
-                                //   setErrorCvv(true);
-                                // }
                               }}
                               onFocus={() =>
                                 setCardDetails((prevData) => ({
@@ -475,20 +567,15 @@ function Payment() {
                                 top: 2,
                               }}
                             >
-                              {/* 3 digit number from your card &nbsp;{" "} */}
-                              {/* <img
-                                                width={"44"}
-                                                height={"28"}
-                                                src={require("./card.gif")}
-                                                alt="card"
-                                            /> */}
                             </small>
                           </div>
                         </div>
                       </div>
                       <div className="col-12 mb-2">
-                        <input type="checkbox" />
-                        <label class="formLabel ms-2">Save this card for future use</label>
+                        <input type="checkbox" checked={saveCard} onChange={(e)=>setSaveCard(e.target.checked)} />
+                        <label class="formLabel ms-2">
+                          Save this card for future use
+                        </label>
                       </div>
                       <div className="col-12">
                         <button onClick={handleSubmit} className="payNow">
@@ -514,10 +601,7 @@ function Payment() {
                         <td>Actual Price</td>
                         <td>${packages?.regular_price}</td>
                       </tr>
-                      {/* <tr>
-                        <td>Included Local Company Number</td>
-                        <td>$0.00</td>
-                      </tr> */}
+                     
                       <tr>
                         <td>Taxes</td>
                         <td>Calculated at Checkout</td>
@@ -552,14 +636,7 @@ function Payment() {
                         <td>Offer Price</td>
                         <td>${packages?.offer_price}</td>
                       </tr>
-                      {/* <tr>
-                        <td>First bill</td>
-                        <td>$13.99</td>
-                      </tr>
-                      <tr>
-                        <td>Monthly Bill</td>
-                        <td>$13.99/mo</td>
-                      </tr> */}
+                    
                     </tbody>
                   </table>
                 </div>
