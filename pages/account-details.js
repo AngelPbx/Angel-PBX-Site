@@ -211,40 +211,6 @@ function AccountDetails() {
                     Account{" "}
                   </button>
                 </li>
-                {/* <li className="nav-item" role="presentation">
-                  <button
-                    className={`nav-link ${
-                      activeState === "payment" ? "active" : ""
-                    }`}
-                    id="profile-tab"
-                    data-bs-toggle="tab"
-                    data-bs-target="#profile"
-                    type="button"
-                    role="tab"
-                    aria-controls="profile"
-                    aria-selected="false"
-                    onClick={() => setActiveState("payment")}
-                  >
-                    Payment
-                  </button>
-                </li>
-                <li className="nav-item" role="presentation">
-                  <button
-                    className={`nav-link ${
-                      activeState === "review" ? "active" : ""
-                    }`}
-                    id="contact-tab"
-                    data-bs-toggle="tab"
-                    data-bs-target="#contact"
-                    type="button"
-                    role="tab"
-                    aria-controls="contact"
-                    aria-selected="false"
-                    onClick={() => setActiveState("review")}
-                  >
-                    Review
-                  </button>
-                </li> */}
               </ul>
             </div>
             <div className="col-xl-8 col-md-8 col-12">

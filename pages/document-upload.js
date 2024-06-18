@@ -9,78 +9,81 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function DocumentUpload() {
-  const router = useRouter()
-  const dispatch = useDispatch()
-  const {id} = router.query
-  const [loading,setLoading]=useState(false)
-  useEffect(()=>{
-    if(router.isReady){
-      if(!id){
-        router.push({pathname:"/"})
+  const router = useRouter();
+  const dispatch = useDispatch();
+  const { id } = router.query;
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    if (router.isReady) {
+      if (!id) {
+        router.push({ pathname: "/" });
       }
     }
-  },[id, router])
+  }, [id, router]);
 
-  const [formData,setFormData]=useState({
-    reg:null,
-    tin:null,
-    moa:null
-  })
-  const [formDataError,setFormDataError]=useState({
-    reg:false,
-    tin:false,
-    moa:false
-  })
+  const [formData, setFormData] = useState({
+    reg: null,
+    tin: null,
+    moa: null,
+  });
+  const [formDataError, setFormDataError] = useState({
+    reg: false,
+    tin: false,
+    moa: false,
+  });
 
-  function handleChange(e){
-    const {name,value} = e.target
-    setFormData(prevData=>({
+  function handleChange(e) {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
       ...prevData,
-      [name]:e.target?.files?.[0]
-    }))
+      [name]: e.target?.files?.[0],
+    }));
 
     const selectedFile = e.target.files[0];
     if (selectedFile && selectedFile.size <= 1024 * 1024) {
-      setFormDataError(prevDat=>({
+      setFormDataError((prevDat) => ({
         ...prevDat,
-        [name]:false
-      }))
+        [name]: false,
+      }));
     } else {
-      setFormDataError(prevDat=>({
+      setFormDataError((prevDat) => ({
         ...prevDat,
-        [name]:true
-      }))
+        [name]: true,
+      }));
     }
-
   }
   async function handleSubmit() {
-    if(formDataError.tin || formDataError.reg || formDataError.moa){
-      toast.error("Image size must be less then 1 MB")
-    }else if (!formData.reg) {
+    if (formDataError.tin || formDataError.reg || formDataError.moa) {
+      toast.error("Image size must be less then 1 MB");
+    } else if (!formData.reg) {
       toast.error("Please upload reg image");
     } else if (!formData.tin) {
       toast.error("Please upload TIN image");
     } else if (!formData.moa) {
       toast.error("Please upload MOA image");
     } else {
-      setLoading(true)
+      setLoading(true);
       const parsedData = {
         account_id: id,
         registration_path: formData.reg,
         tin_path: formData.tin,
         moa_path: formData.moa,
       };
-      const apiData = await imageUploadFunction("account-detail/stores",parsedData)
-      if(apiData.status){
+      const apiData = await imageUploadFunction(
+        "account-detail/stores",
+        parsedData
+      );
+      if (apiData.status) {
         dispatch({
-          type:"SET_THANKYOUMESSAGE",
-          thankYouMessage:"Your Response is recorder, after document verification you will get an mail for further process. "
-        })
-        router.push({pathname:"/thank-you"})
-        setLoading(false)
-      }else{
-        setLoading(false)
-        toast.error(apiData.message)
+          type: "SET_THANKYOUMESSAGE",
+          thankYouMessage:
+            "Your Response is recorder, after document verification you will get an mail for further process. ",
+        });
+        router.push({ pathname: "/thank-you" });
+        setLoading(false);
+      } else {
+        setLoading(false);
+        toast.error(apiData.message);
       }
     }
   }
@@ -116,12 +119,21 @@ function DocumentUpload() {
                       accept="image/*"
                       onChange={handleChange}
                     />
-                    {formDataError.reg?<span style={{color: 'red', fontSize: 12}}><i class="fa-solid fa-triangle-exclamation"></i> Image should be less than 1 MB</span>:""}
-                    
+                    {formDataError.reg ? (
+                      <span style={{ color: "red", fontSize: 12 }}>
+                        <i class="fa-solid fa-triangle-exclamation"></i> Image
+                        should be less than 1 MB
+                      </span>
+                    ) : (
+                      ""
+                    )}
                   </div>
                   <div className="docImgPlaceholder mt-auto">
                     {formData.reg && (
-                      <img src={URL.createObjectURL(formData.reg)} alt="Selected" />
+                      <img
+                        src={URL.createObjectURL(formData.reg)}
+                        alt="Selected"
+                      />
                     )}
                   </div>
                 </div>
@@ -146,12 +158,22 @@ function DocumentUpload() {
                       accept="image/*"
                       onChange={handleChange}
                     />
-                     {formDataError.tin?<span style={{color: 'red', fontSize: 12}}><i class="fa-solid fa-triangle-exclamation"></i> Image should be less than 1 MB</span>:""}
+                    {formDataError.tin ? (
+                      <span style={{ color: "red", fontSize: 12 }}>
+                        <i class="fa-solid fa-triangle-exclamation"></i> Image
+                        should be less than 1 MB
+                      </span>
+                    ) : (
+                      ""
+                    )}
                   </div>
-                 
+
                   <div className="docImgPlaceholder mt-auto">
                     {formData.tin && (
-                      <img src={URL.createObjectURL(formData.tin)} alt="Selected" />
+                      <img
+                        src={URL.createObjectURL(formData.tin)}
+                        alt="Selected"
+                      />
                     )}
                   </div>
                 </div>
@@ -176,12 +198,22 @@ function DocumentUpload() {
                       accept="image/*"
                       onChange={handleChange}
                     />
-                      {formDataError.moa?<span style={{color: 'red', fontSize: 12}}><i class="fa-solid fa-triangle-exclamation"></i> Image should be less than 1 MB</span>:""}
+                    {formDataError.moa ? (
+                      <span style={{ color: "red", fontSize: 12 }}>
+                        <i class="fa-solid fa-triangle-exclamation"></i> Image
+                        should be less than 1 MB
+                      </span>
+                    ) : (
+                      ""
+                    )}
                   </div>
-                
+
                   <div className="docImgPlaceholder mt-auto">
                     {formData.moa && (
-                      <img src={URL.createObjectURL(formData.moa)} alt="Selected" />
+                      <img
+                        src={URL.createObjectURL(formData.moa)}
+                        alt="Selected"
+                      />
                     )}
                   </div>
                 </div>
@@ -191,7 +223,7 @@ function DocumentUpload() {
               </div>
             </div>
           </div>
-          {loading?<CircularLoader />:""}
+          {loading ? <CircularLoader /> : ""}
         </form>
       </section>
       <ToastContainer
