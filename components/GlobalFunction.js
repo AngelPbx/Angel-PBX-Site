@@ -1,6 +1,7 @@
 import axios from "axios"
 
-const baseUrl = "http://192.168.1.88/ucaas-app/api"
+// const baseUrl = "http://192.168.1.88/ucaas-app/api"
+const baseUrl = "http://127.0.0.1:8000/api"
 
 // General Get Function
 export async function generalGetFunction (endpoint){

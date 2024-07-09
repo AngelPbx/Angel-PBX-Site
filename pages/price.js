@@ -193,7 +193,7 @@ function Price({ initialData }) {
                           </h5>
                           <h2>
                             <sub>$</sub>
-                            <span>{basic[0].offer_price}</span>
+                            <span>{basic[0].offer_price.split(".")[0]}</span><span style={{fontSize: 18}}>.{basic[0].offer_price.split(".")[1]}</span>
                             <sub>{duration}</sub>
                           </h2>
                           <Link href={`/account-details?id=${basic[0].id}`}>
@@ -243,7 +243,7 @@ function Price({ initialData }) {
                           </h5>
                           <h2>
                             <sub>$</sub>
-                            <span>{standard[0].offer_price}</span>
+                            <span>{standard[0].offer_price.split(".")[0]}</span><span style={{fontSize: 18}}>.{standard[0].offer_price.split(".")[1]}</span>
                             <sub>/{duration}</sub>
                           </h2>
                           <Link href={`/account-details?id=${standard[0].id}`}>
@@ -296,7 +296,7 @@ function Price({ initialData }) {
                           </h5>
                           <h2>
                             <sub>$</sub>
-                            <span>{advance[0].offer_price}</span>
+                            <span>{advance[0].offer_price.split(".")[0]}</span><span style={{fontSize: 18}}>.{advance[0].offer_price.split(".")[1]}</span>
                             <sub>/{duration}</sub>
                           </h2>
                           <Link href={`/account-details?id=${advance[0].id}`}>
