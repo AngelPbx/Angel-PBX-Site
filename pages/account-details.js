@@ -182,7 +182,8 @@ function AccountDetails() {
         }))
       }else{
         setLoading(false)
-        toast.error(apiData.message)
+        const errorMessage = Object.keys(apiData.errors);
+        toast.error(apiData.errors[errorMessage[0]][0]);
       }
     }
   }
