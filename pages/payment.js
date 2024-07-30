@@ -242,6 +242,7 @@ function Payment() {
       };
       const apidata = await generalPostFunction("pay", parsedData);
       if (apidata.status) {
+        setLoading(false)
         dispatch({
           type: "SET_INVOICE",
           invoiceLink: apidata.data.invoice_url,
@@ -255,7 +256,7 @@ function Payment() {
         });
       } else {
         setLoading(false);
-        toast.error(apidata.message);
+        toast.error(apidata.error);
       }
     }
   }
