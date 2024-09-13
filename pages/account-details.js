@@ -76,6 +76,8 @@ function AccountDetails() {
 
   function handleChange(e) {
     const { name, value } = e.target;
+    const regex = /^[a-zA-Z0-9@. ]*$/;
+    if (regex.test(value)) {
     setFormData((prevState) => ({
       ...prevState,
       [name]: value,
@@ -85,6 +87,7 @@ function AccountDetails() {
       ...prevState,
       [name]: false,
     }));
+  }
   }
 
   async function handleSubmit() {
@@ -240,6 +243,7 @@ function AccountDetails() {
                               ""
                             )}
                             <input
+                              value={formData.companyName}
                               onChange={handleChange}
                               name="companyName"
                               type="text"
@@ -257,6 +261,7 @@ function AccountDetails() {
                               ""
                             )}
                             <input
+                              value={formData.adminName}
                               onChange={handleChange}
                               name="adminName"
                               type="text"
@@ -274,6 +279,7 @@ function AccountDetails() {
                               ""
                             )}
                             <input
+                              value={formData.email}
                               onChange={handleChange}
                               name="email"
                               type="email"
@@ -291,6 +297,7 @@ function AccountDetails() {
                               ""
                             )}
                             <input
+                              value={formData.confirmEmail}
                               onChange={handleChange}
                               name="confirmEmail"
                               type="email"
@@ -308,6 +315,7 @@ function AccountDetails() {
                               ""
                             )}
                             <input
+                              value={formData.contactNumber}
                               onChange={handleChange}
                               name="contactNumber"
                               max="999999"
@@ -326,6 +334,7 @@ function AccountDetails() {
                               ""
                             )}
                             <input
+                              value={formData.altNumber}
                               type="number"
                               onChange={handleChange}
                               name="altNumber"
@@ -362,6 +371,7 @@ function AccountDetails() {
                               ""
                             )}
                             <input
+                              value={formData.unit}
                               onChange={handleChange}
                               name="unit"
                               type="text"
@@ -379,6 +389,7 @@ function AccountDetails() {
                               ""
                             )}
                             <input
+                              value={formData.building}
                               onChange={handleChange}
                               name="building"
                               type="text"
@@ -397,6 +408,7 @@ function AccountDetails() {
                               ""
                             )}
                             <input
+                              value={formData.street}
                               onChange={handleChange}
                               name="street"
                               type="text"
@@ -415,6 +427,7 @@ function AccountDetails() {
                               ""
                             )}
                             <input
+                              value={formData.city}
                               onChange={handleChange}
                               name="city"
                               type="text"
@@ -432,6 +445,7 @@ function AccountDetails() {
                               ""
                             )}
                             <input
+                              value={formData.zipCode}
                               onChange={handleChange}
                               name="zipCode"
                               type="number"
@@ -449,6 +463,7 @@ function AccountDetails() {
                               ""
                             )}
                             <input
+                              value={formData.state}
                               onChange={handleChange}
                               name="state"
                               placeholder="Enter State"
@@ -465,6 +480,7 @@ function AccountDetails() {
                               ""
                             )}
                             <input
+                              value={formData.country}
                               onChange={handleChange}
                               name="country"
                               type="text"

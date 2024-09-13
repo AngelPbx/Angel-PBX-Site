@@ -46,6 +46,8 @@ function Payment() {
   function billingChnage(e){
     const name = e.target.name
     const value = e.target.value
+    const regex = /^[a-zA-Z0-9@. ]*$/;
+    if (regex.test(value)) {
    setBilling(prevData=>({
     ...prevData,
     [name]:value
@@ -56,6 +58,7 @@ function Payment() {
    }))
 
   }
+}
 
   useEffect(() => {
     if (router.isReady) {
@@ -105,10 +108,13 @@ function Payment() {
         [name]: value.trim().replace(/\s+/g, ""),
       }));
     } else {
+      const regex = /^[a-zA-Z0-9@. ]*$/;
+      if (regex.test(value)) {
       setCardDetails((prevState) => ({
         ...prevState,
         [name]: value,
-      }));
+      }))
+    };
     }
     setErrorCard((prevState) => ({
       ...prevState,
@@ -279,6 +285,7 @@ function Payment() {
                   </label>
                   <input
                     placeholder="Name"
+                    value={billing.name}
                     name="name"
                     className={`form-control travellerdetails ${
                       errorBilling.name ? "error-border" : ""
@@ -299,6 +306,7 @@ function Payment() {
                       errorBilling.phone ? "error-border" : ""
                     }`}
                     onChange={(e)=>billingChnage(e)}
+                    value={billing.phone}
                     type="number"
                   />
                 </div>
@@ -314,6 +322,7 @@ function Payment() {
                       errorBilling.email ? "error-border" : ""
                     }`}
                     onChange={(e)=>billingChnage(e)}
+                    value={billing.email}
                     type="email"
                   />
                 </div>
@@ -329,6 +338,7 @@ function Payment() {
                       errorBilling.address ? "error-border" : ""
                     }`}
                     onChange={(e)=>billingChnage(e)}
+                    value={billing.address}
                     type="text"
                   />
                 </div>
@@ -344,6 +354,7 @@ function Payment() {
                       errorBilling.city ? "error-border" : ""
                     }`}
                     onChange={(e)=>billingChnage(e)}
+                    value={billing.city}
                     type="text"
                   />
                 </div>
@@ -359,6 +370,7 @@ function Payment() {
                       errorBilling.state ? "error-border" : ""
                     }`}
                     onChange={(e)=>billingChnage(e)}
+                    value={billing.state}
                     type="text"
                   />
                 </div>
@@ -374,6 +386,7 @@ function Payment() {
                       errorBilling.zip ? "error-border" : ""
                     }`}
                     onChange={(e)=>billingChnage(e)}
+                    value={billing.zip}
                     type="text"
                   />
                 </div>
@@ -389,6 +402,7 @@ function Payment() {
                       errorBilling.country ? "error-border" : ""
                     }`}
                     onChange={(e)=>billingChnage(e)}
+                    value={billing.country}
                     type="text"
                   />
                 </div>
@@ -431,6 +445,7 @@ function Payment() {
                             onChange={(e) => {
                               handleChange(e);
                             }}
+                            value={cardDetails.cardName}
                             onFocus={() =>
                               setCardDetails((prevData) => ({
                                 ...prevData,
@@ -477,6 +492,7 @@ function Payment() {
                                   handleChange(e);
                                 },
                               })}
+
                               onFocus={() =>
                                 setCardDetails((prevData) => ({
                                   ...prevData,

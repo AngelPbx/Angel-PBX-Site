@@ -144,18 +144,18 @@ function Price({ initialData }) {
                         <div
                           onClick={() => {
                             setMaximum(100);
-                            setMinimum(10);
+                            setMinimum(11);
                           }}
-                          className={minimum === 10 ? "active" : ""}
+                          className={minimum === 11 ? "active" : ""}
                         >
                           10-100
                         </div>
                         <div
                           onClick={() => {
                             setMaximum(1000);
-                            setMinimum(100);
+                            setMinimum(101);
                           }}
-                          className={minimum === 100 ? "active" : ""}
+                          className={minimum === 101 ? "active" : ""}
                         >
                           100+
                         </div>
