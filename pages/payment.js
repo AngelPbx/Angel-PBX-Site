@@ -14,6 +14,8 @@ import CircularLoader from "@/components/CircularLoader";
 import { useDispatch } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "react-phone-number-input/style.css";
+import PhoneInput from "react-phone-number-input";
 
 function Payment() {
   const router = useRouter();
@@ -21,44 +23,57 @@ function Payment() {
   const routerData = router.query;
   const [packages, setPackages] = useState();
   const [loading, setLoading] = useState(false);
-  const [saveCard,setSaveCard]=useState(false)
-  const [billing,setBilling]=useState({
-    name:"",
-    phone:"",
-    email:"",
-    address:"",
-    city:"",
-    state:"",
-    zip:"",
-    country:""
-  })
-  const [errorBilling,setErrorBilling]=useState({
-    name:false,
-    phone:false,
-    email:false,
-    address:false,
-    city:false,
-    state:false,
-    zip:false,
-    country:false
-  })
+  const [saveCard, setSaveCard] = useState(false);
+  const [billing, setBilling] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    address: "",
+    city: "",
+    state: "",
+    zip: "",
+    country: "",
+  });
+  const [errorBilling, setErrorBilling] = useState({
+    name: false,
+    phone: false,
+    email: false,
+    address: false,
+    city: false,
+    state: false,
+    zip: false,
+    country: false,
+  });
 
-  function billingChnage(e){
-    const name = e.target.name
-    const value = e.target.value
-    const regex = /^[a-zA-Z0-9@. ]*$/;
-    if (regex.test(value)) {
-   setBilling(prevData=>({
-    ...prevData,
-    [name]:value
-   }))
-   setErrorBilling(prevData=>({
-    ...prevData,
-    [name]:false
-   }))
-
+  function billingChnage(e) {
+    const name = e.target.name;
+    const value = e.target.value;
+    const regex = /^[a-zA-Z0-9 ]*$/;
+    const emailRegex = /^[a-zA-Z0-9@.-]*$/;
+    if (name === "email") {
+      if (emailRegex.test(value)) {
+        setBilling((prevData) => ({
+          ...prevData,
+          [name]: value,
+        }));
+        setErrorBilling((prevData) => ({
+          ...prevData,
+          [name]: false,
+        }));
+      }
+    } else {
+      if (regex.test(value)) {
+        setBilling((prevData) => ({
+          ...prevData,
+          [name]: value,
+        }));
+        setErrorBilling((prevData) => ({
+          ...prevData,
+          [name]: false,
+        }));
+      }
+    }
   }
-}
 
   useEffect(() => {
     if (router.isReady) {
@@ -108,13 +123,24 @@ function Payment() {
         [name]: value.trim().replace(/\s+/g, ""),
       }));
     } else {
-      const regex = /^[a-zA-Z0-9@. ]*$/;
-      if (regex.test(value)) {
-      setCardDetails((prevState) => ({
-        ...prevState,
-        [name]: value,
-      }))
-    };
+      const regex = /^[a-zA-Z0-9 ]*$/;
+      const emailRegex = /^[a-zA-Z0-9@.-]*$/;
+
+      if (name === "email") {
+        if (emailRegex.test(value)) {
+          setCardDetails((prevState) => ({
+            ...prevState,
+            [name]: value,
+          }));
+        }
+      } else {
+        if (regex.test(value)) {
+          setCardDetails((prevState) => ({
+            ...prevState,
+            [name]: value,
+          }));
+        }
+      }
     }
     setErrorCard((prevState) => ({
       ...prevState,
@@ -141,30 +167,32 @@ function Payment() {
 
   async function handleSubmit() {
     cardValidator.number(cardNumber).isValid;
-    Object.keys(billing).map((item)=>{
-     
-      if(billing[item]===""){
-        setErrorBilling(prevData=>({
+    Object.keys(billing).map((item) => {
+      if (billing[item] === "") {
+        setErrorBilling((prevData) => ({
           ...prevData,
-          [item]:true
-        }))
-      }else if(item==="phone"){
+          [item]: true,
+        }));
+      } else if (item === "phone") {
         // console.log(billing[item].length,"This is loop",item);
-        if(billing[item].length>15 || billing[item].length<8){
-          setErrorBilling(prevData=>({
+        if (billing[item].length > 15 || billing[item].length < 8) {
+          setErrorBilling((prevData) => ({
             ...prevData,
-            phone:true
-          }))
+            phone: true,
+          }));
         }
-      }else if(item==="email"){
-        if(!(billing["email"].includes("@")) && !(billing["email"].includes("."))){
-          setErrorBilling(prevData=>({
+      } else if (item === "email") {
+        if (
+          !billing["email"].includes("@") &&
+          !billing["email"].includes(".")
+        ) {
+          setErrorBilling((prevData) => ({
             ...prevData,
-            email:true
-          }))
+            email: true,
+          }));
         }
       }
-    })
+    });
     if (!cardValidator.number(cardDetails.cardNumber).isValid) {
       setErrorCard((prevData) => ({
         ...prevData,
@@ -189,37 +217,43 @@ function Payment() {
         cardName: true,
       }));
     }
-    console.log((Object.keys(billing).map((item)=>{
-      if(billing[item]===""){
-        return(true)
-      }else if(item==="phone"){
-        if(billing[item].length>15 || billing[item].length<8){
-          return(true)
-        }
-      }else if(item==="email"){
-        if(!(billing[item].includes("@") || billing[item].includes("."))){
-          return(true)
-        }
-      }
-    })).includes(true))
+    console.log(
+      Object.keys(billing)
+        .map((item) => {
+          if (billing[item] === "") {
+            return true;
+          } else if (item === "phone") {
+            if (billing[item].length > 15 || billing[item].length < 8) {
+              return true;
+            }
+          } else if (item === "email") {
+            if (!(billing[item].includes("@") || billing[item].includes("."))) {
+              return true;
+            }
+          }
+        })
+        .includes(true)
+    );
     if (
       !(cardDetails.cardName === "") &&
       !(cardDetails.expiryDate === "") &&
       !(cardDetails.cvv.length < 3 || cardDetails.cvv.length > 6) &&
       cardValidator.number(cardDetails.cardNumber).isValid &&
-      !((Object.keys(billing).map((item)=>{
-        if(billing[item]===""){
-          return(true)
-        }else if(item==="phone"){
-          if(billing[item].length>15 || billing[item].length<8){
-            return(true)
+      !Object.keys(billing)
+        .map((item) => {
+          if (billing[item] === "") {
+            return true;
+          } else if (item === "phone") {
+            if (billing[item].length > 15 || billing[item].length < 8) {
+              return true;
+            }
+          } else if (item === "email") {
+            if (!(billing[item].includes("@") || billing[item].includes("."))) {
+              return true;
+            }
           }
-        }else if(item==="email"){
-          if(!(billing[item].includes("@") || billing[item].includes("."))){
-            return(true)
-          }
-        }
-      })).includes(true))
+        })
+        .includes(true)
     ) {
       setLoading(true);
       const year = new Date().getFullYear();
@@ -236,19 +270,19 @@ function Payment() {
         cvc: cardDetails.cvv,
         name: cardDetails.cardName,
         lead_id: routerData.leadId,
-        fullname:billing.name,
-        contact_no:billing.phone,
-        email:billing.email,
-        address:billing.address,
-        zip:billing.zip,
-        city:billing.city,
-        state:billing.state,
-        country:billing.country,
-        save_card:saveCard,
+        fullname: billing.name,
+        contact_no: billing.phone,
+        email: billing.email,
+        address: billing.address,
+        zip: billing.zip,
+        city: billing.city,
+        state: billing.state,
+        country: billing.country,
+        save_card: saveCard,
       };
       const apidata = await generalPostFunction("pay", parsedData);
       if (apidata.status) {
-        setLoading(false)
+        setLoading(false);
         dispatch({
           type: "SET_INVOICE",
           invoiceLink: apidata.data.invoice_url,
@@ -262,12 +296,17 @@ function Payment() {
         });
       } else {
         setLoading(false);
-        toast.error(apidata.error);
+        if(apidata.error){
+          toast.error(apidata.error);
+        }else{
+          const errorMessage = Object.keys(apidata.errors);
+          toast.error(apidata.errors[errorMessage[0]][0]);
+        }
+        
       }
     }
   }
 
-  
   return (
     <div className="main">
       <div className="container py-4">
@@ -290,7 +329,7 @@ function Payment() {
                     className={`form-control travellerdetails ${
                       errorBilling.name ? "error-border" : ""
                     }`}
-                    onChange={(e)=>billingChnage(e)}
+                    onChange={(e) => billingChnage(e)}
                     type="text"
                   />
                 </div>
@@ -299,7 +338,27 @@ function Payment() {
                     Phone
                     <span style={{ color: "red" }}>*</span>
                   </label>
-                  <input
+                  <PhoneInput
+                    defaultCountry="US"
+                    maxLength={17}
+                    placeholder="Enter Your Number"
+                    name="contactNumber"
+                    className={`form-control travellerdetails ${
+                      errorBilling.phone ? "error-border" : ""
+                    }`}
+                    value={billing.phone}
+                    onChange={(value) => {
+                      setBilling((prevState) => ({
+                        ...prevState,
+                        phone: String(value),
+                      }));
+                      setErrorBilling((prevState) => ({
+                        ...prevState,
+                        phone: false,
+                      }));
+                    }}
+                  />
+                  {/* <input
                     placeholder="Phone number"
                     name="phone"
                     className={`form-control travellerdetails ${
@@ -308,7 +367,7 @@ function Payment() {
                     onChange={(e)=>billingChnage(e)}
                     value={billing.phone}
                     type="number"
-                  />
+                  /> */}
                 </div>
                 <div className="form-group mb-1">
                   <label className="review-label">
@@ -321,7 +380,7 @@ function Payment() {
                     className={`form-control travellerdetails ${
                       errorBilling.email ? "error-border" : ""
                     }`}
-                    onChange={(e)=>billingChnage(e)}
+                    onChange={(e) => billingChnage(e)}
                     value={billing.email}
                     type="email"
                   />
@@ -337,7 +396,7 @@ function Payment() {
                     className={`form-control travellerdetails ${
                       errorBilling.address ? "error-border" : ""
                     }`}
-                    onChange={(e)=>billingChnage(e)}
+                    onChange={(e) => billingChnage(e)}
                     value={billing.address}
                     type="text"
                   />
@@ -353,7 +412,7 @@ function Payment() {
                     className={`form-control travellerdetails ${
                       errorBilling.city ? "error-border" : ""
                     }`}
-                    onChange={(e)=>billingChnage(e)}
+                    onChange={(e) => billingChnage(e)}
                     value={billing.city}
                     type="text"
                   />
@@ -369,7 +428,7 @@ function Payment() {
                     className={`form-control travellerdetails ${
                       errorBilling.state ? "error-border" : ""
                     }`}
-                    onChange={(e)=>billingChnage(e)}
+                    onChange={(e) => billingChnage(e)}
                     value={billing.state}
                     type="text"
                   />
@@ -385,7 +444,7 @@ function Payment() {
                     className={`form-control travellerdetails ${
                       errorBilling.zip ? "error-border" : ""
                     }`}
-                    onChange={(e)=>billingChnage(e)}
+                    onChange={(e) => billingChnage(e)}
                     value={billing.zip}
                     type="text"
                   />
@@ -401,7 +460,7 @@ function Payment() {
                     className={`form-control travellerdetails ${
                       errorBilling.country ? "error-border" : ""
                     }`}
-                    onChange={(e)=>billingChnage(e)}
+                    onChange={(e) => billingChnage(e)}
                     value={billing.country}
                     type="text"
                   />
@@ -492,7 +551,6 @@ function Payment() {
                                   handleChange(e);
                                 },
                               })}
-
                               onFocus={() =>
                                 setCardDetails((prevData) => ({
                                   ...prevData,
@@ -583,13 +641,16 @@ function Payment() {
                                 right: 2,
                                 top: 2,
                               }}
-                            >
-                            </small>
+                            ></small>
                           </div>
                         </div>
                       </div>
                       <div className="col-12 mb-2">
-                        <input type="checkbox" checked={saveCard} onChange={(e)=>setSaveCard(e.target.checked)} />
+                        <input
+                          type="checkbox"
+                          checked={saveCard}
+                          onChange={(e) => setSaveCard(e.target.checked)}
+                        />
                         <label class="formLabel ms-2">
                           Save this card for future use
                         </label>
@@ -618,7 +679,7 @@ function Payment() {
                         <td>Actual Price</td>
                         <td>${packages?.regular_price}</td>
                       </tr>
-                     
+
                       <tr>
                         <td>Taxes</td>
                         <td>Calculated at Checkout</td>
@@ -653,7 +714,6 @@ function Payment() {
                         <td>Offer Price</td>
                         <td>${packages?.offer_price}</td>
                       </tr>
-                    
                     </tbody>
                   </table>
                 </div>

@@ -2,43 +2,46 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { generalGetFunction, generalPostFunction } from "@/components/GlobalFunction";
+import {
+  generalGetFunction,
+  generalPostFunction,
+} from "@/components/GlobalFunction";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useDispatch } from "react-redux";
 import CircularLoader from "@/components/CircularLoader";
+import "react-phone-number-input/style.css";
+import PhoneInput from "react-phone-number-input";
 
 function AccountDetails() {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const router = useRouter();
   const routerData = router.query;
-  const [timeZone,setTimeZone]=useState()
-  const [packages,setPackages]=useState()
-  const [loading,setLoading]=useState(false)
+  const [timeZone, setTimeZone] = useState();
+  const [packages, setPackages] = useState();
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
-    if(router.isReady){
-    if (routerData.id === null || routerData.id === undefined ) {
-      router.back();
-    }else{
-      async function getData (){
-        const apitData = await generalGetFunction("timezones")
-        const packageData = await generalGetFunction(`free/package/details/${routerData.id}`)
-        if(packageData.status){
-          setPackages(packageData.data)
+    if (router.isReady) {
+      if (routerData.id === null || routerData.id === undefined) {
+        router.back();
+      } else {
+        async function getData() {
+          const apitData = await generalGetFunction("timezones");
+          const packageData = await generalGetFunction(
+            `free/package/details/${routerData.id}`
+          );
+          if (packageData.status) {
+            setPackages(packageData.data);
+          }
+          if (apitData.status) {
+            setTimeZone(apitData.data);
+          } else {
+          }
         }
-        if(apitData.status){
-          console.log("This is apiData",apitData);
-          setTimeZone(apitData.data)
-        }else{
-        }
+        getData();
       }
-      getData()
     }
-  }
-    
   }, [router, routerData]);
-  console.log("This is package",packages);
-
   const [activeState, setActiveState] = useState("account");
   const [formData, setFormData] = useState({
     companyName: "",
@@ -54,7 +57,7 @@ function AccountDetails() {
     zipCode: "",
     state: "",
     country: "",
-    street:"",
+    street: "",
   });
 
   const [errorFormData, setErrorFormData] = useState({
@@ -71,23 +74,39 @@ function AccountDetails() {
     zipCode: false,
     state: false,
     country: false,
-    street:"",
+    street: "",
   });
 
   function handleChange(e) {
     const { name, value } = e.target;
-    const regex = /^[a-zA-Z0-9@. ]*$/;
-    if (regex.test(value)) {
-    setFormData((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
+    const regex = /^[a-zA-Z0-9 ]*$/;
+    const emailRegex = /^[a-zA-Z0-9@.-]*$/;
 
-    setErrorFormData((prevState) => ({
-      ...prevState,
-      [name]: false,
-    }));
-  }
+    if (name === "email" || name === "confirmEmail") {
+      if (emailRegex.test(value) && value !== " ") {
+        setFormData((prevState) => ({
+          ...prevState,
+          [name]: value,
+        }));
+
+        setErrorFormData((prevState) => ({
+          ...prevState,
+          [name]: false,
+        }));
+      }
+    } else {
+      if (regex.test(value)) {
+        setFormData((prevState) => ({
+          ...prevState,
+          [name]: value,
+        }));
+
+        setErrorFormData((prevState) => ({
+          ...prevState,
+          [name]: false,
+        }));
+      }
+    }
   }
 
   async function handleSubmit() {
@@ -104,17 +123,18 @@ function AccountDetails() {
             [key]: true,
           }));
         }
-      }else if (formData[key] === "") {
+      } else if (formData[key] === "") {
         setErrorFormData((prevState) => ({
           ...prevState,
           [key]: true,
         }));
-      }else {
+      } else {
         setErrorFormData((prevState) => ({
           ...prevState,
           [key]: false,
         }));
       }
+      
     });
     if (formData.email !== formData.confirmEmail) {
       setErrorFormData((prevData) => ({
@@ -128,8 +148,20 @@ function AccountDetails() {
       }));
     }
 
-    if(formData.contactNumber.length>15 || formData.altNumber.length>15){
-      toast.error("Please enter a valid phone number")
+    if (
+      formData.contactNumber.length > 15 ||
+      formData.contactNumber.length < 8
+    ) {
+      setErrorFormData((prevData) => ({
+        ...prevData,
+        contactNumber: true,
+      }));
+    }
+    if (formData.altNumber.length > 15 || formData.altNumber.length < 8) {
+      setErrorFormData((prevData) => ({
+        ...prevData,
+        altNumber: true,
+      }));
     }
     const isAnyEmpty = Object.values(formData).some((value) => value === "");
     if (
@@ -137,11 +169,14 @@ function AccountDetails() {
       !formData.email.includes("@") ||
       !formData.email.includes(".") ||
       formData.email !== formData.confirmEmail ||
-      formData.contactNumber.length>15 || formData.altNumber.length>15
+      formData.contactNumber.length > 15 ||
+      formData.contactNumber.length <8 ||
+      formData.altNumber.length > 15 ||
+      formData.altNumber.length <8
     ) {
       console.log("Please fill in all fields before submitting.");
     } else {
-      setLoading(true)
+      setLoading(true);
       const parsedData = {
         company_name: formData.companyName,
         admin_name: formData.adminName,
@@ -150,24 +185,28 @@ function AccountDetails() {
         contact_no: formData.contactNumber,
         alternate_contact_no: formData.altNumber,
         unit: formData.unit,
-        street: formData.street, 
+        street: formData.street,
         city: formData.city,
         zip: formData.zipCode,
         country: formData.country,
         package_id: routerData.id,
         building: formData.building,
-        status:"inactive",
-        state:formData.state
+        status: "inactive",
+        state: formData.state,
       };
-      const apiData = await generalPostFunction("lead-store",parsedData)
-      if(apiData.status){
-        setLoading(false)
+      const apiData = await generalPostFunction("lead-store", parsedData);
+      if (apiData.status) {
+        setLoading(false);
         dispatch({
-          type:"SET_THANKYOUMESSAGE",
-          thankYouMessage:"Your Response is recorder, you will get a mail for document Upload "
-        })
-        router.push({pathname:`/payment`,query:{id:routerData.id,leadId:apiData.data.id}})
-        setFormData(prevData=>({
+          type: "SET_THANKYOUMESSAGE",
+          thankYouMessage:
+            "Your Response is recorder, you will get a mail for document Upload ",
+        });
+        router.push({
+          pathname: `/payment`,
+          query: { id: routerData.id, leadId: apiData.data.id },
+        });
+        setFormData((prevData) => ({
           ...prevData,
           companyName: "",
           adminName: "",
@@ -182,14 +221,18 @@ function AccountDetails() {
           zipCode: "",
           state: "",
           country: "",
-        }))
-      }else{
-        setLoading(false)
+        }));
+      } else {
+        setLoading(false);
         const errorMessage = Object.keys(apiData.errors);
         toast.error(apiData.errors[errorMessage[0]][0]);
       }
     }
   }
+
+  useEffect(() => {
+    console.log("This is contact length", formData.contactNumber);
+  }, [formData.contactNumber]);
 
   return (
     <div className="main">
@@ -314,14 +357,31 @@ function AccountDetails() {
                             ) : (
                               ""
                             )}
-                            <input
+                            <PhoneInput
+                              defaultCountry="US"
+                              maxLength={17}
+                              placeholder="Enter Your Number"
+                              name="contactNumber"
+                              value={formData.contactNumber}
+                              onChange={(value) => {
+                                setFormData((prevState) => ({
+                                  ...prevState,
+                                  contactNumber: String(value),
+                                }));
+                                setErrorFormData((prevState) => ({
+                                  ...prevState,
+                                  contactNumber: false,
+                                }))
+                              }}
+                            />
+                            {/* <input
                               value={formData.contactNumber}
                               onChange={handleChange}
                               name="contactNumber"
                               max="999999"
                               type="number"
                               placeholder="Enter Your Number"
-                            />
+                            /> */}
                           </div>
                           <div className="col-xl-6 col-md-6 col-12">
                             <label htmlFor="#">Alternate Contact Number</label>
@@ -333,13 +393,30 @@ function AccountDetails() {
                             ) : (
                               ""
                             )}
-                            <input
+                            <PhoneInput
+                              defaultCountry="US"
+                              maxLength={17}
+                              placeholder="Enter Your Number"
+                              name="contactNumber"
+                              value={formData.altNumber}
+                              onChange={(value) => {
+                                setFormData((prevState) => ({
+                                  ...prevState,
+                                  altNumber: String(value),
+                                }));
+                                setErrorFormData((prevState) => ({
+                                  ...prevState,
+                                  altNumber: false,
+                                }))
+                              }}
+                            />
+                            {/* <input
                               value={formData.altNumber}
                               type="number"
                               onChange={handleChange}
                               name="altNumber"
                               placeholder="Enter Alternate Number"
-                            />
+                            /> */}
                           </div>
                           <div className="col-xl-6 col-md-6 col-12">
                             <label htmlFor="#">Timezone</label>
@@ -353,11 +430,14 @@ function AccountDetails() {
                             )}
                             <select onChange={handleChange} name="timeZone">
                               <option value="">Select Timezone</option>
-                             {timeZone && timeZone.map((item,key)=>{
-                              return(
-                                <option key={key} value={item.id}>{item.name}</option>
-                              )
-                             })}
+                              {timeZone &&
+                                timeZone.map((item, key) => {
+                                  return (
+                                    <option key={key} value={item.id}>
+                                      {item.name}
+                                    </option>
+                                  );
+                                })}
                             </select>
                           </div>
                           <div className="col-xl-6 col-md-6 col-12">
@@ -450,6 +530,7 @@ function AccountDetails() {
                               name="zipCode"
                               type="number"
                               placeholder="Enter Zip Code"
+                              maxLength={6}
                             />
                           </div>
                           <div className="col-xl-3 col-md-3 col-12">
@@ -800,8 +881,17 @@ function AccountDetails() {
                   <table>
                     <tbody>
                       <tr>
-                        <td>{((packages?.regular_price-packages?.offer_price)*100/packages?.regular_price).toFixed(2)}% Off</td>
-                        <td>-${packages?.regular_price-packages?.offer_price}</td>
+                        <td>
+                          {(
+                            ((packages?.regular_price - packages?.offer_price) *
+                              100) /
+                            packages?.regular_price
+                          ).toFixed(2)}
+                          % Off
+                        </td>
+                        <td>
+                          -${packages?.regular_price - packages?.offer_price}
+                        </td>
                       </tr>
                     </tbody>
                   </table>
@@ -825,9 +915,7 @@ function AccountDetails() {
                   </table>
                 </div>
                 <div className="terms">
-                  <p>
-                  **{packages?.description}
-                  </p>
+                  <p>**{packages?.description}</p>
                 </div>
                 <div id="checkout" style={{ display: "none" }}>
                   <Link href="/thankyou" className="serviceBtn w-100 py-3">
@@ -839,7 +927,7 @@ function AccountDetails() {
           </div>
         </div>
       </section>
-      {loading?<CircularLoader />:""}
+      {loading ? <CircularLoader /> : ""}
       <ToastContainer
         position="bottom-right"
         autoClose={3000}
