@@ -110,7 +110,7 @@ function Header() {
             </div>
             <div className="col-xl-2 col-6 d-flex">
               <div style={{ width: "max-content", marginRight: 20 }}>
-                <a target="_blank" href="http://192.168.1.88:3000" className="specialLearn m-0">
+                <a target="_blank" href="https://192.168.1.88:3000" className="specialLearn m-0">
                   Go To App
                 </a>
               </div>

@@ -133,7 +133,18 @@ function Payment() {
             [name]: value,
           }));
         }
-      } else {
+      } else if (name === "cvv") {
+        // Allow input only if the value length is <= 4
+        if (value.length <= 6) {
+          if (regex.test(value)) {
+            setCardDetails((prevState) => ({
+              ...prevState,
+              [name]: value, // directly assign value
+            }));
+          }
+        }
+      }
+       else {
         if (regex.test(value)) {
           setCardDetails((prevState) => ({
             ...prevState,
@@ -621,6 +632,7 @@ function Payment() {
                               }`}
                               name="cvv"
                               type="number"
+                              value={cardDetails.cvv}
                               onChange={(e) => {
                                 handleChange(e);
                               }}

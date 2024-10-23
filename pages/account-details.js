@@ -79,7 +79,7 @@ function AccountDetails() {
 
   function handleChange(e) {
     const { name, value } = e.target;
-    const regex = /^[a-zA-Z0-9 ]*$/;
+    const regex = /^[a-zA-Z0-9- ]*$/;
     const emailRegex = /^[a-zA-Z0-9@.-]*$/;
 
     if (name === "email" || name === "confirmEmail") {
@@ -94,7 +94,21 @@ function AccountDetails() {
           [name]: false,
         }));
       }
-    } else {
+    }else if (name === "zipCode") {
+      // Check if the new value is shorter or longer
+      if (value.length <= 8) {
+        setFormData((prevState) => ({
+          ...prevState,
+          [name]: value, // directly assign value
+        }));
+    
+        setErrorFormData((prevState) => ({
+          ...prevState,
+          [name]: false, // handle any form validation here
+        }));
+      }
+    }
+     else {
       if (regex.test(value)) {
         setFormData((prevState) => ({
           ...prevState,
