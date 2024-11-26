@@ -48,6 +48,8 @@
     border: 1px solid #7ec9f4;
     border-radius: 4px;
     margin: 0px 0px 10px 0px;
+    background-color: #fff;
+    color: #000;
 }
 
 .account_detailssection .account_box form select {
@@ -60,6 +62,8 @@
     border: 1px solid #7ec9f4;
     border-radius: 4px;
     margin: 0px 0px 10px 0px;
+    background-color: #fff;
+    color: #000;
 }
 
 .account_detailssection .account_box form .flex_checkinput {

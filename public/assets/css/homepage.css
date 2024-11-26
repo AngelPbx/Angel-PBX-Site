@@ -40,12 +40,14 @@
     font-weight: 800;
     text-transform: capitalize;
 }
-.homeBanner .content h1 span{
+
+.homeBanner .content h1 span {
     background: linear-gradient(135deg, #d41f9c, #ffa78c);
     max-block-size: -webkit-fill-available;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
 .homeBanner .content p {
     font-family: var(--paragraph);
     font-size: 22px;
@@ -110,7 +112,6 @@
     font-weight: 600;
     color: #000;
     font-family: var(--sub-heading);
-    font-family: Dosis;
 }
 
 .services .wrapper .serviceContent p {
@@ -230,54 +231,54 @@
 
 /* ------------------------------------------------------- */
 
-.miniTesti #miniTesti .item {
+.miniTesti .item {
     background-color: #f1efec;
     padding: 70px 120px;
     border-radius: 30px;
 }
 
-.miniTesti #miniTesti .item h3 {
+.miniTesti .item h3 {
     font-size: 36px;
     font-weight: 600;
     font-family: var(--sub-para);
     color: #383838;
 }
 
-.miniTesti #miniTesti .item .imgWrapper {
+.miniTesti .item .imgWrapper {
     width: 150px;
     height: 70px;
     overflow: hidden;
 }
 
-.miniTesti #miniTesti .item .imgWrapper img {
+.miniTesti .item .imgWrapper img {
     width: 100%;
     height: 100%;
     object-fit: contain;
 }
 
-.miniTesti #miniTesti .item .miniContent {
+.miniTesti .item .miniContent {
     font-family: var(--sub-heading);
 }
 
-.miniTesti #miniTesti .owl-nav {
-    position: absolute;
-    top: -65px;
-    right: 15px;
-}
-
-.miniTesti #miniTesti .owl-nav button {
-    width: 45px;
-    height: 45px;
-    background-color: #f1efec;
+.swiper-button-prev,
+.swiper-button-next {
     border-radius: 50%;
-    margin-left: 10px;
-    transition: 0.3s;
+    background-color: #007bff30;
+    width: 45px !important;
+    height: 45px !important;
 }
 
-.miniTesti #miniTesti .owl-nav button:hover {
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
     background-color: var(--main_color);
 }
 
-.miniTesti #miniTesti .owl-nav button:hover i {
+.swiper-button-prev:hover::after,
+.swiper-button-next:hover::after {
     color: #fff;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+    font-size: 24px !important;
 }
