@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const baseUrl = "http://192.168.1.88/UcaasS-Backend/api"
+const baseUrl = "https://testing.webvio.in/backend/api"
 // const baseUrl = "http://127.0.0.1:8000/api"
 
 // General Get Function
