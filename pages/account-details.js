@@ -235,7 +235,9 @@ function AccountDetails() {
       } else {
         setLoading(false);
         const errorMessage = Object.keys(apiData.errors);
+        console.log(errorMessage, 'submit');
         toast.error(apiData.errors[errorMessage[0]][0]);
+
       }
     }
   }
@@ -251,15 +253,14 @@ function AccountDetails() {
       ) : (
         <>
           <section className="account_detailssection">
-            <div className="container">
-              <div className="row">
+            <div className="container-fluid p-4">
+              <div className="row p-3">
                 <div className="col-12">
                   <ul className="nav nav-tabs" id="myTab" role="tablist">
                     <li className="nav-item" role="presentation">
                       <button
-                        className={`nav-link ${
-                          activeState === "account" ? "active" : ""
-                        }`}
+                        className={`nav-link ${activeState === "account" ? "active" : ""
+                          }`}
                         id="home-tab"
                         data-bs-toggle="tab"
                         data-bs-target="#home"
@@ -274,9 +275,8 @@ function AccountDetails() {
                     </li>
                     <li className="nav-item" role="presentation">
                       <button
-                        className={`nav-link ${
-                          activeState === "verification" ? "active" : ""
-                        }`}
+                        className={`nav-link ${activeState === "verification" ? "active" : ""
+                          }`}
                         id="otp-tab"
                         data-bs-toggle="tab"
                         data-bs-target="#otp"
@@ -295,9 +295,8 @@ function AccountDetails() {
                   <div className="tabs_box">
                     <div className="tab-content" id="myTabContent">
                       <div
-                        className={`tab-pane fade ${
-                          activeState === "account" ? "show active" : ""
-                        }`}
+                        className={`tab-pane fade ${activeState === "account" ? "show active" : ""
+                          }`}
                         id="home"
                         role="tabpanel"
                         aria-labelledby="home-tab"
@@ -306,10 +305,10 @@ function AccountDetails() {
                           <form action="#">
                             <div className="row">
                               <h5> Account Details </h5>
-                              <div className="col-xl-6 col-md-6 col-12">
-                                <label htmlFor="#">Company Name</label>
+                              <div className="col-xl-6 m col-md-6 col-12">
+                                <label htmlFor="#" className="mt-3">Company Name</label>
                                 {errorFormData.companyName ? (
-                                  <label className="text-warning float-end mt-1">
+                                  <label className="text-danger float-end mt-1">
                                     <i className="fa-solid fa-circle-exclamation"></i>{" "}
                                     Field Missing
                                   </label>
@@ -325,9 +324,9 @@ function AccountDetails() {
                                 />
                               </div>
                               <div className="col-xl-6 col-md-6 col-12">
-                                <label htmlFor="#">Admin Name</label>
+                                <label htmlFor="#" className="mt-3">Admin Name</label>
                                 {errorFormData.adminName ? (
-                                  <label className="text-warning float-end mt-1">
+                                  <label className="text-danger float-end mt-1">
                                     <i className="fa-solid fa-circle-exclamation"></i>{" "}
                                     Field Missing
                                   </label>
@@ -343,9 +342,9 @@ function AccountDetails() {
                                 />
                               </div>
                               <div className="col-xl-6 col-md-6 col-12">
-                                <label htmlFor="#">Email</label>
+                                <label htmlFor="#" className="mt-3">Email</label>
                                 {errorFormData.email ? (
-                                  <label className="text-warning float-end mt-1">
+                                  <label className="text-danger float-end mt-1">
                                     <i className="fa-solid fa-circle-exclamation"></i>{" "}
                                     Field Missing
                                   </label>
@@ -361,9 +360,9 @@ function AccountDetails() {
                                 />
                               </div>
                               <div className="col-xl-6 col-md-6 col-12">
-                                <label htmlFor="#">Confirm Email</label>
+                                <label htmlFor="#" className="mt-3">Confirm Email</label>
                                 {errorFormData.confirmEmail ? (
-                                  <label className="text-warning float-end mt-1">
+                                  <label className="text-danger float-end mt-1">
                                     <i className="fa-solid fa-circle-exclamation"></i>{" "}
                                     Email not matched
                                   </label>
@@ -375,13 +374,17 @@ function AccountDetails() {
                                   onChange={handleChange}
                                   name="confirmEmail"
                                   type="email"
-                                  placeholder="Enter Email Again"
+                                  placeholder="Enter Email Again" 
+                                  onPaste={(e) => {
+                                    e.preventDefault();
+                                    return false;
+                                  }}
                                 />
                               </div>
                               <div className="col-xl-6 col-md-6 col-12">
-                                <label htmlFor="#">Contact Number</label>
+                                <label htmlFor="#" className="mt-3">Contact Number</label>
                                 {errorFormData.contactNumber ? (
-                                  <label className="text-warning float-end mt-1">
+                                  <label className="text-danger float-end mt-1">
                                     <i className="fa-solid fa-circle-exclamation"></i>{" "}
                                     Field Missing
                                   </label>
@@ -419,7 +422,7 @@ function AccountDetails() {
                                   Alternate Contact Number
                                 </label>
                                 {errorFormData.altNumber ? (
-                                  <label className="text-warning float-end mt-1">
+                                  <label className="text-danger float-end mt-1">
                                     <i className="fa-solid fa-circle-exclamation"></i>{" "}
                                     Field Missing
                                   </label>
@@ -454,7 +457,7 @@ function AccountDetails() {
                               <div className="col-xl-6 col-md-6 col-12">
                                 <label htmlFor="#">Timezone</label>
                                 {errorFormData.timeZone ? (
-                                  <label className="text-warning float-end mt-1">
+                                  <label className="text-danger float-end mt-1">
                                     <i className="fa-solid fa-circle-exclamation"></i>{" "}
                                     Field Missing
                                   </label>
@@ -476,7 +479,7 @@ function AccountDetails() {
                               <div className="col-xl-6 col-md-6 col-12">
                                 <label htmlFor="#">Block/Unit/Place</label>
                                 {errorFormData.unit ? (
-                                  <label className="text-warning float-end mt-1">
+                                  <label className="text-danger float-end mt-1">
                                     <i className="fa-solid fa-circle-exclamation"></i>{" "}
                                     Field Missing
                                   </label>
@@ -494,7 +497,7 @@ function AccountDetails() {
                               <div className="col-xl-3 col-md-6 col-12">
                                 <label htmlFor="#">Building</label>
                                 {errorFormData.building ? (
-                                  <label className="text-warning float-end mt-1">
+                                  <label className="text-danger float-end mt-1">
                                     <i className="fa-solid fa-circle-exclamation"></i>{" "}
                                     Field Missing
                                   </label>
@@ -513,7 +516,7 @@ function AccountDetails() {
                               <div className="col-xl-3 col-md-6 col-12">
                                 <label htmlFor="#">Street</label>
                                 {errorFormData.street ? (
-                                  <label className="text-warning float-end mt-1">
+                                  <label className="text-danger float-end mt-1">
                                     <i className="fa-solid fa-circle-exclamation"></i>{" "}
                                     Field Missing
                                   </label>
@@ -532,7 +535,7 @@ function AccountDetails() {
                               <div className="col-xl-3 col-md-3 col-12">
                                 <label htmlFor="#">City</label>
                                 {errorFormData.city ? (
-                                  <label className="text-warning float-end mt-1">
+                                  <label className="text-danger float-end mt-1">
                                     <i className="fa-solid fa-circle-exclamation"></i>{" "}
                                     Field Missing
                                   </label>
@@ -550,7 +553,7 @@ function AccountDetails() {
                               <div className="col-xl-3 col-md-3 col-12">
                                 <label htmlFor="#">Zip Code</label>
                                 {errorFormData.zipCode ? (
-                                  <label className="text-warning float-end mt-1">
+                                  <label className="text-danger float-end mt-1">
                                     <i className="fa-solid fa-circle-exclamation"></i>{" "}
                                     Field Missing
                                   </label>
@@ -569,7 +572,7 @@ function AccountDetails() {
                               <div className="col-xl-3 col-md-3 col-12">
                                 <label htmlFor="#">State</label>
                                 {errorFormData.state ? (
-                                  <label className="text-warning float-end mt-1">
+                                  <label className="text-danger float-end mt-1">
                                     <i className="fa-solid fa-circle-exclamation"></i>{" "}
                                     Field Missing
                                   </label>
@@ -586,7 +589,7 @@ function AccountDetails() {
                               <div className="col-xl-3 col-md-3 col-12">
                                 <label htmlFor="#">Country</label>
                                 {errorFormData.country ? (
-                                  <label className="text-warning float-end mt-1">
+                                  <label className="text-danger float-end mt-1">
                                     <i className="fa-solid fa-circle-exclamation"></i>{" "}
                                     Field Missing
                                   </label>
@@ -619,9 +622,8 @@ function AccountDetails() {
                         </div>
                       </div>
                       <div
-                        className={`tab-pane fade ${
-                          activeState === "verification" ? "show active" : ""
-                        }`}
+                        className={`tab-pane fade ${activeState === "verification" ? "show active" : ""
+                          }`}
                         id="otp"
                         role="tabpanel"
                         aria-labelledby="otp-tab"
@@ -750,9 +752,8 @@ function AccountDetails() {
                         </section>
                       </div>
                       <div
-                        className={`tab-pane fade ${
-                          activeState === "payment" ? "show active" : ""
-                        }`}
+                        className={`tab-pane fade ${activeState === "payment" ? "show active" : ""
+                          }`}
                         id="profile"
                         role="tabpanel"
                         aria-labelledby="profile-tab"
@@ -911,9 +912,8 @@ function AccountDetails() {
                         </div>
                       </div>
                       <div
-                        className={`tab-pane fade ${
-                          activeState === "review" ? "show active" : ""
-                        }`}
+                        className={`tab-pane fade ${activeState === "review" ? "show active" : ""
+                          }`}
                         id="contact"
                         role="tabpanel"
                         aria-labelledby="contact-tab"
@@ -1043,11 +1043,11 @@ function AccountDetails() {
                       <h3>Your Cart Details</h3>
                     </div>
                     <div className="grossTotal">
-                      <h5>PACKAGE COST</h5>
+                      <h5>Package Cast</h5>
                       <table>
                         <tbody>
                           <tr>
-                            <td>Actual Price</td>
+                            <td>Actual Price : </td>
                             <td>${packages?.regular_price}</td>
                           </tr>
                           {/* <tr>
@@ -1055,7 +1055,7 @@ function AccountDetails() {
                         <td>$0.00</td>
                       </tr> */}
                           <tr>
-                            <td>Taxes</td>
+                            <td>Taxes : </td>
                             <td>Calculated at Checkout</td>
                           </tr>
                         </tbody>

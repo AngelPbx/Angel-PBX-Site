@@ -45,6 +45,9 @@ function Payment() {
     country: false,
   });
 
+
+  // console.log(data, "passs ");
+  
   function billingChnage(e) {
     const name = e.target.name;
     const value = e.target.value;
@@ -354,7 +357,7 @@ function Payment() {
                     maxLength={17}
                     placeholder="Enter Your Number"
                     name="contactNumber"
-                    className={`form-control travellerdetails ${
+                    className={`form-control  travellerdetails ${
                       errorBilling.phone ? "error-border" : ""
                     }`}
                     value={billing.phone}
@@ -684,7 +687,7 @@ function Payment() {
                   <h3>Your Cart Details</h3>
                 </div>
                 <div className="grossTotal">
-                  <h5>PACKAGE COST</h5>
+                  <h6>PACKAGE COST</h6>
                   <table>
                     <tbody>
                       <tr>

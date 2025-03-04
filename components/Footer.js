@@ -17,7 +17,7 @@ function Footer() {
                   <div className="logo_element">
                     <Link href="home.html">
                       <img
-                        src="/assets/images/logo.webp"
+                        src="/assets/images/logo.png"
                         alt="LOGO"
                       />
                     </Link>
@@ -47,7 +47,7 @@ function Footer() {
                         <input type="email" placeholder="Enter Your Email" />
                         <button>
                           {" "}
-                          Send <i className="fa-solid fa-location-arrow" />{" "}
+                          Send {" "}
                         </button>
                       </form>
                     </div>

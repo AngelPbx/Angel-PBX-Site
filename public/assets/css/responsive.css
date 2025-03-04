@@ -2,12 +2,20 @@
     footer .up_footerbox ul li .email_box input {
         width: 77.5% !important;
     }
+
+    .menubarhide{
+        display: none;
+    }
 }
 @media (max-width:991px) {
     .pricing_section .tab_box ul {
         display: revert;
     }
 
+
+    .menubarhide{
+        display: none;
+    }
     .pricing_section .tab_box {
         padding: 15px;
     }
@@ -227,5 +235,14 @@
     }
     .trusted_partnersection .content_wraper .left_box{
         padding: 60px 0px;
+    }
+
+
+    .header .wrapper li a {
+        padding: 10px 20px;
+        font-size: 14px !important;
+        font-weight: 500;
+        color: #000;
+        font-family: Roboto;
     }
 }

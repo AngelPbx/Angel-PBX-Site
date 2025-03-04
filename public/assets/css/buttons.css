@@ -20,12 +20,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--main_color);
+    background: linear-gradient(135deg, #e75a95, #ffa78c);
     padding: 10px 20px;
     border-radius: 4px;
     color: #fff;
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 600;
     font-family: var(--paragraph);
     width: max-content;
     margin: 10px auto 0 auto;
@@ -38,7 +38,7 @@
 }
 
 .specialLearn {
-    display: flex;
+    /* display: flex; */
     justify-content: start;
     align-items: center;
     width: max-content;
@@ -59,7 +59,7 @@
     width: 40px;
     height: 40px;
     border-radius: 50px;
-    background: linear-gradient(135deg, #871fff, #7ec9f4);
+    background: linear-gradient(135deg, #e75a95, #ffa78c);
     position: absolute;
     z-index: -1;
     top: 3px;

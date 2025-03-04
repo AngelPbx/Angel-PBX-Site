@@ -167,9 +167,13 @@ footer .center_box a {
     margin: 15px 16px 0px 0px;
     font-family: var(--heading);
     font-weight: 400;
+    border-radius: 5px;
 }
 
 footer .center_box a.call_ctn {
     background: #fff;
-    color: #000;
+    color:  #e75a95;
+    border-radius: 5px;
+    font-weight: 700;
+
 }

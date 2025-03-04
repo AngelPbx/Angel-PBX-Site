@@ -1,0 +1,20 @@
+.pricing_banner {
+    background: url("'../images/pricing_mainbanner.webp'");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 100px 0px;
+    position: relative;
+    z-index: 1;
+}
+
+.pricing_banner::after {
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #000000c7, #da339aa1);
+    z-index: -1;
+}

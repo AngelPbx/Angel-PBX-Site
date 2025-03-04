@@ -43,11 +43,12 @@ input[type="file"] {
   }
 
   label.review-label {
-    font-size: 14px;
+    font-size: 13px;
+    font-weight: 500;
 }
 
 .form-group .form-control{
-    font-size: 15px;
+    font-size: 13px;
     padding: 5px 10px;
 }
 
