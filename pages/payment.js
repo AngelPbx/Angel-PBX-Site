@@ -352,7 +352,7 @@ function Payment() {
                     Phone
                     <span style={{ color: "red" }}>*</span>
                   </label>
-                  <PhoneInput
+                  <PhoneInput 
                     defaultCountry="US"
                     maxLength={17}
                     placeholder="Enter Your Number"
