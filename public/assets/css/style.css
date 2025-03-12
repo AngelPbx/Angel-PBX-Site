@@ -29,3 +29,8 @@
 body {
     font-family: Roboto;
 }
+
+.PhoneInputInput {
+    background-color: transparent;
+    border: none;
+}
