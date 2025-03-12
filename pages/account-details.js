@@ -284,7 +284,8 @@ function AccountDetails() {
                         role="tab"
                         aria-controls="home"
                         aria-selected="true"
-                        onClick={() => setActiveState("verification")}
+                        disabled={true}
+                      // onClick={() => setActiveState("verification")}
                       >
                         Verification{" "}
                       </button>
@@ -306,7 +307,7 @@ function AccountDetails() {
                             <div className="row">
                               <h5> Account Details </h5>
                               <div className="col-xl-6 m col-md-6 col-12">
-                                <label htmlFor="#" className="mt-3">Company Name</label>
+                                <label htmlFor="#">Company Name</label>
                                 {errorFormData.companyName ? (
                                   <label className="text-danger float-end mt-1">
                                     <i className="fa-solid fa-circle-exclamation"></i>{" "}
@@ -324,7 +325,7 @@ function AccountDetails() {
                                 />
                               </div>
                               <div className="col-xl-6 col-md-6 col-12">
-                                <label htmlFor="#" className="mt-3">Admin Name</label>
+                                <label htmlFor="#">Admin Name</label>
                                 {errorFormData.adminName ? (
                                   <label className="text-danger float-end mt-1">
                                     <i className="fa-solid fa-circle-exclamation"></i>{" "}
@@ -342,7 +343,7 @@ function AccountDetails() {
                                 />
                               </div>
                               <div className="col-xl-6 col-md-6 col-12">
-                                <label htmlFor="#" className="mt-3">Email</label>
+                                <label htmlFor="#">Email</label>
                                 {errorFormData.email ? (
                                   <label className="text-danger float-end mt-1">
                                     <i className="fa-solid fa-circle-exclamation"></i>{" "}
@@ -360,7 +361,7 @@ function AccountDetails() {
                                 />
                               </div>
                               <div className="col-xl-6 col-md-6 col-12">
-                                <label htmlFor="#" className="mt-3">Confirm Email</label>
+                                <label htmlFor="#">Confirm Email</label>
                                 {errorFormData.confirmEmail ? (
                                   <label className="text-danger float-end mt-1">
                                     <i className="fa-solid fa-circle-exclamation"></i>{" "}
@@ -382,7 +383,7 @@ function AccountDetails() {
                                 />
                               </div>
                               <div className="col-xl-6 col-md-6 col-12">
-                                <label htmlFor="#" className="mt-3">Contact Number</label>
+                                <label htmlFor="#">Contact Number</label>
                                 {errorFormData.contactNumber ? (
                                   <label className="text-danger float-end mt-1">
                                     <i className="fa-solid fa-circle-exclamation"></i>{" "}
