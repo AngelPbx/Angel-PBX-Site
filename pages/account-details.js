@@ -374,7 +374,7 @@ function AccountDetails() {
                                   onChange={handleChange}
                                   name="confirmEmail"
                                   type="email"
-                                  placeholder="Enter Email Again" 
+                                  placeholder="Enter Email Again"
                                   onPaste={(e) => {
                                     e.preventDefault();
                                     return false;
@@ -611,7 +611,7 @@ function AccountDetails() {
                                     window.scrollTo(0, 0);
                                     handleSubmit();
                                   }}
-                                  className="serviceBtn ms-auto mb-2"
+                                  className="serviceBtn ms-auto mb-0"
                                 >
                                   Continue to payment&nbsp;&nbsp;
                                   <i className="fa-solid fa-location-arrow" />{" "}
