@@ -374,6 +374,7 @@ function AccountDetails() {
                                   value={formData.confirmEmail}
                                   onChange={handleChange}
                                   name="confirmEmail"
+                                  autoComplete="off"
                                   type="email"
                                   placeholder="Enter Email Again"
                                   onPaste={(e) => {
