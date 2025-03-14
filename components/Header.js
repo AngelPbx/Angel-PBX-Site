@@ -17,7 +17,7 @@ function Header() {
   const data = useSelector((state) => state.token);
   const [loading, setLoading] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isMenuClose,  setIsMenuCose]= useState(true)
+  const [isMenuClose, setIsMenuCose] = useState(true)
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -59,7 +59,7 @@ function Header() {
   }
 
 
-  const handleClickClose =()=>{
+  const handleClickClose = () => {
     setIsMenuOpen(false)
   }
 
@@ -101,8 +101,6 @@ function Header() {
     setLoading(true);
     await router.push('contact');
     setLoading(false)
-
-
   }
 
 
@@ -170,7 +168,7 @@ function Header() {
                   <div className=" display-side">
 
                     <div onClick={handleClickClose}>
-                    <i class="fa-solid fa-xmark"></i>
+                      <i class="fa-solid fa-xmark"></i>
                     </div>
 
                     <ul>

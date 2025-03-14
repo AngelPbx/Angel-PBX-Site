@@ -1,97 +1,119 @@
+import CircularLoader from '@/components/CircularLoader';
+import { generalPostFunction } from '@/components/GlobalFunction';
 import e from 'cors';
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 function contact() {
 
+  const [formData, setFormData] = useState({
+    firstname: "",
+    lastname: "",
+    email: "",
+    mobile_number: "",
+    address: "",
+    // message: "",
+  });
 
-  const [first, setFirst] = useState('');
-  const [last, setLast] = useState('');
-  const [email, setEmail] = useState('');
-  const [number, setNumber] = useState('');
-  const [address, setAddress] = useState('');
-  const [nameError, setNameError] = useState('');
-  const [lastError, setLastError] = useState('');
-  const [emailError, setEmailError] = useState('');
-  const [addressError, setAddressError] = useState('');
-  const [numberError, setNumberError] = useState('');
+  const [errors, setErrors] = useState({});
+  const [isFormValid, setIsFormValid] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [responseMessage, setResponseMessage] = useState(null);
 
-  const validationForm = () => {
-    let isValid = true;
-    if (!first) {
-      setNameError('First name is required ');
-      isValid = false;
-    } else {
-      setNameError(' ')
-    }
-    if (!last) {
-      setLastError('Last name is required ');
-      isValid = false;
-    } else {
-      setLastError(' ');
-    }
+  // Handle input change
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
 
+    // Validate field as user types
+    validateField(name, value);
+  };
 
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if ( !email){
-      setEmailError('Email is required ')
-      isValid = false ;
-    } else{
-  
-   if (!emailRegex.test(email)){
-    setEmailError(' Invalid email format ')
-    isValid=false
-    }
-    else {
-      setEmailError( ' ')
-    }
-  }
+  // Validation function
+  const validateField = (name, value) => {
+    let error = "";
 
-
-  if (!address){
-    setAddressError ('Address is required ')
-    isValid =false
-  }
-  else {
-    setAddressError( ' ')
-  }
-
-  const mobileNumber = /^[0-9]{10}$/;
-  if (!number){
-    setNumberError (' Mobile number is required ')
-    isValid = false;
-       
-  }else {
-   if(mobileNumber.test(number)){
-    setNumberError (' number is invalid ')
-   }
-   else setNumberError( ' ')
-  }
-
-  if (isValid)
-  {
-    console.log(" Form submitted ", {first, last , mobileNumber , address });
-    
-  }
-
-  }
-
-
-  const handleSubmit = () => {
-
-    if (validationForm()) {
-      console.log("Form submitted ", first, last, );
-
+    if (name === "firstname") {
+      if (!value.trim()) error = "First name is required";
+      else if (value.length < 3) error = "First name must be at least 3 characters";
     }
 
-  }
-  // const handleSubmitform = (e) => {
-  //   e.preventdefault();
-  //   setFirst(e.target.value);
-  //   setLast(e.target.value);
-  //   setAddress(e.target.value)
-  //   setEmail(e.target.value);
-  //   setName(e.target.value);
-  // }
+    if (name === "lastname") {
+      if (!value.trim()) error = "Last name is required";
+      else if (value.length < 3) error = "Last name must be at least 3 characters";
+    }
+
+    if (name === "email") {
+      if (!value.trim()) error = "Email is required";
+      else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) error = "Invalid email format";
+    }
+
+    if (name === "mobile_number") {
+      if (!value.trim()) error = "Mobile number is required";
+      else if (!/^\+?[1-9]\d{0,2}[-\s]?\d{6,14}$/.test(value)) error = "Mobile number must be a valid international format";
+    }
+
+    if (name === "address") {
+      if (!value.trim()) error = "Address is required";
+      else if (value.length < 10) error = "Address must be at least 10 characters";
+    }
+
+    // Update errors state
+    setErrors((prevErrors) => ({ ...prevErrors, [name]: error }));
+  };
+
+  // Handle blur event (validate when user leaves input)
+  const handleBlur = (e) => {
+    validateField(e.target.name, e.target.value);
+  };
+
+  // Validate all fields and check if form is valid
+  useEffect(() => {
+    const hasErrors = Object.values(errors).some((error) => error);
+    const allFieldsFilled = Object.values(formData).every((value) => value.trim() !== "");
+
+    setIsFormValid(!hasErrors && allFieldsFilled);
+  }, [errors, formData]);
+
+  // Handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setResponseMessage(null);
+
+    // Re-check validation before submission
+    const newErrors = {};
+    Object.keys(formData).forEach((key) => {
+      validateField(key, formData[key]);
+      if (errors[key]) newErrors[key] = errors[key];
+    });
+
+    setErrors(newErrors);
+    if (Object.keys(newErrors).length > 0) return;
+
+    setLoading(true);
+
+    try {
+      const res = await generalPostFunction("site-message", formData);
+
+      if (res.status) {
+        setResponseMessage("Message sent successfully!");
+        setFormData({
+          firstname: "",
+          lastname: "",
+          email: "",
+          mobile_number: "",
+          address: "",
+        }); // Reset form
+        setErrors({});
+        setIsFormValid(false);
+      } else {
+        setResponseMessage("Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      setResponseMessage("Network error. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="main">
@@ -125,7 +147,6 @@ function contact() {
               <div className="heading_box">
 
               </div>
-
             </div>
           </div>
         </div>
@@ -183,6 +204,10 @@ function contact() {
       </section>
       <section className="pricing_section" style={{ backgroundImage: `url(${'https://wallpapers.com/images/high/dark-gradient-quwlcn6vowfuwug1.webp'})`, backgroundSize: 'cover', width: '100%' }}>
         <div className="container p-4">
+          {loading ? <CircularLoader /> : ""}
+          <p className='text-center text-white'>
+            {responseMessage ? responseMessage : ""}
+          </p>
           <div className="row align-items-center justify-content-center">
             <div className='col-md-7 '>
 
@@ -190,60 +215,83 @@ function contact() {
                 <div class="content text-center mb-5">
                   <h1 style={{ color: "white" }}>Contact me</h1>
                 </div>
-                <form onClick={handleSubmit}>
+                <form onSubmit={handleSubmit}>
+
                   <div>
-                    <label htmlFor="firstName">First Name:</label>
-
-                  </div>
-                  <div >
-                    <input className='form-control ' value={first} onChange={(e)=>{setFirst(e.target.value)}} type="text" id="firstName" name="firstName" required />
-                    {nameError && <p style={{ color: 'red' ,fontSize: '12px'  }}>{nameError}</p>}
-                  </div>
-                  <div className='mt-2'>
-                    <label htmlFor="lastName">Last Name:</label>
-                    <div>
-                      <input className='form-control' value={last} onChange={(e)=>{setLast(e.target.value)}} type="text" id="lastName" name="lastName" required />
-                      {lastError && <p style={{ color: 'red', fontSize: '12px'  }}>{lastError}</p>}
-                    </div>
+                    <label htmlFor="firstname">First Name:</label>
+                    <input
+                      className="form-control"
+                      name="firstname"
+                      value={formData.firstname}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                    />
+                    <p className='error-message'>{errors?.firstname ? errors.firstname : ""}</p>
                   </div>
 
-                  <div className='mt-2'>
+                  <div className="mt-2">
+                    <label htmlFor="lastname">Last Name:</label>
+                    <input
+                      className="form-control"
+                      name="lastname"
+                      value={formData.lastname}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                    />
+                    <p className='error-message'>{errors?.lastname ? errors.lastname : ""}</p>
+                  </div>
+
+                  <div className="mt-2">
                     <label htmlFor="email">Email:</label>
-                    <div>
-                      <input className='form-control' value={email} onChange={(e)=>{setEmail(e.target.value)}} type="email" id="email" name="email" required />
-                    {emailError && <p  style={{ color: 'red', fontSize: '12px'  }}>{emailError}</p>}
-                    </div>
+                    <input
+                      className="form-control"
+                      name="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                    />
+                    <p className='error-message'>{errors?.email ? errors.email : ""}</p>
                   </div>
 
-                  <div className='mt-2'>
-                    <label htmlFor="mobileNumber">Mobile Number:</label>
-                    <div>
-                      <input className='form-control' value={number} onChange={(e)=>{setNumber(e.target.value)}} type="tel" id="mobileNumber" name="mobileNumber" required />
-                   {numberError &&  <span  style={{ color: 'red', fontSize: '12px' }}>{numberError}</span>}
-                    </div>
+                  <div className="mt-2">
+                    <label htmlFor="mobile_number">Mobile Number:</label>
+                    <input
+                      className="form-control"
+                      name="mobile_number"
+                      type="tel"
+                      value={formData.mobile_number}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                    />
+                    <p className='error-message'>{errors?.mobile_number ? errors.mobile_number : ""}</p>
                   </div>
 
                   <div className='mt-2'>
                     <label htmlFor="address">Address:</label>
                     <div>
-                      <textarea className='form-control' value={address} onChange={(e)=>{setAddress(e.target.value)}} id="address" name="address" required></textarea>
-                    { addressError &&  <p  style={{ color: 'red', fontSize: '12px'  }}>{addressError}</p>}
+                      <textarea
+                        className="form-control"
+                        name="address"
+                        value={formData.address}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                      ></textarea>
+                      <p className='error-message'>{errors?.address ? errors.address : ""}</p>
                     </div>
                   </div>
 
-                  <div className='mt-2'>
-
-                    <div>
-                      <input required className='d-none' type='name ' />
-                    </div>
+                  <div className="text-end mt-3">
+                    <button
+                      type="submit"
+                      className="btn btn-md btn-primary"
+                      disabled={!isFormValid || loading}
+                    >
+                      {loading ? "Sending..." : "Submit"}
+                    </button>
                   </div>
 
-
-                  <div className='text-end mt-5'>
-                    <button type="submit" className='btn btn-md btn-primary  '>Submit</button>
-                  </div>
                 </form>
-
               </div>
 
             </div>

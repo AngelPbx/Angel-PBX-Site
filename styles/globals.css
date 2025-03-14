@@ -95,3 +95,15 @@ a {
     color-scheme: dark;
   }
 }
+
+.error-message {  
+  color: red !important;
+  font-size: 12px !important;
+  height: 20px;
+  padding-top: 3px;  
+}
+
+.email-sent-message {
+  justify-content: end !important;
+  color: white !important;
+}

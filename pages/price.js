@@ -17,39 +17,37 @@ function Price({ initialData }) {
   const [basic, setBasic] = useState();
   const [standard, setStandard] = useState();
   const [advance, setAdvance] = useState();
+
   useEffect(() => {
-    setBasic(
-      data.filter(
-        (item) =>
-          item.name === "Basic" &&
-          item.subscription_type === duration &&
-          Number(item.number_of_user) > minimum - 1 &&
-          Number(item.number_of_user < maximum + 1)
-      )
+
+    const filteredBasic = data.filter(
+      (item) =>
+        item.name === "Basic" &&
+        item.subscription_type === duration &&
+        Number(item.number_of_user) >= minimum &&
+        Number(item.number_of_user) <= maximum
     );
-    setStandard(
-      data.filter(
-        (item) =>
-          item.name === "Standard" &&
-          item.subscription_type === duration &&
-          Number(item.number_of_user) > minimum - 1 &&
-          Number(item.number_of_user < maximum + 1)
-      )
+    const filteredStandard = data.filter(
+      (item) =>
+        item.name === "Standard" &&
+        item.subscription_type === duration &&
+        Number(item.number_of_user) >= minimum &&
+        Number(item.number_of_user) <= maximum
     );
-    setAdvance(
-      data.filter(
-        (item) =>
-          item.name === "Advanced" &&
-          item.subscription_type === duration &&
-          Number(item.number_of_user) > minimum - 1 &&
-          Number(item.number_of_user < maximum + 1)
-      )
+    const filteredAdvance = data.filter(
+      (item) =>
+        item.name === "Advanced" &&
+        item.subscription_type === duration &&
+        Number(item.number_of_user) >= minimum &&
+        Number(item.number_of_user) <= maximum
     );
+
+    setBasic([...filteredBasic]); // 👈 Ensure new array reference
+    setStandard([...filteredStandard]);
+    setAdvance([...filteredAdvance]);
+
   }, [data, minimum, duration, maximum]);
   console.log("This is server side rendered data", data);
-  console.log("Basic", basic);
-  console.log("Standard", standard);
-  console.log("Advance", advance);
   return (
     <>
       <div className="main">
@@ -73,6 +71,7 @@ function Price({ initialData }) {
           <div className="container">
             <div className="row">
               <div className="col-12">
+
                 <div className="heading_box">
                   <h2>
                     Ucaas <span> Plans &amp; </span> Pricing{" "}
@@ -164,13 +163,13 @@ function Price({ initialData }) {
                 </div>
                 <div className="tab-content" id="myTabContent">
                   <div
-                    className="tab-pane fade show active"
+                    // className="tab-pane fade show active"
                     id="profile-tab-pane"
                     role="tabpanel"
                     aria-labelledby="profile-tab"
                     tabIndex={0}
                   >
-                    <div className="row">
+                    <div className="row" key={basic?.[0]?.id}>
                       {basic && basic.length > 0 ? (
                         <div className="col-xl-5 col-md-6 col-12 mx-auto">
                           <div className="">
@@ -217,22 +216,6 @@ function Price({ initialData }) {
                                 </ul>
                               </div>
                             </div>
-
-                            {/* <div className="elements-item">
-                          <div className="ms-5">
-                            <h5>Additional Information :</h5>
-                            <ul>
-                              <li><i class="fa-solid fa-arrow-right"></i> Call Forwarding cost applicable as per the country code.</li>
-                              <li><i class="fa-solid fa-arrow-right"></i> Billing Cycle is of 30 days interval.</li>
-
-                              <li><i class="fa-solid fa-arrow-right"></i> Minutes charges are for inbound and outbound.</li>
-                              <li><i class="fa-solid fa-arrow-right"></i> Additional Extensions can be purchased at applicable rates by contacting us.</li>
-                              <li><i class="fa-solid fa-arrow-right"></i> Basic Plan can purchase Call Recording facility at an additional cost of $25/month.</li>
-                              <li><i class="fa-solid fa-arrow-right"></i> Recording are deleted from our Server after 60 days from creation date.</li>
-                         
-                            </ul>
-                          </div>
-                        </div> */}
                           </div>
 
                         </div>
@@ -240,8 +223,7 @@ function Price({ initialData }) {
                         ""
                       )}
                     </div>
-
-                    <div className="row">
+                    <div className="row" key={standard?.[0]?.id}>
                       {standard && standard.length > 0 ? (
                         <div className="col-xl-5 col-md-6 col-12 mx-auto">
                           <div className="pricing_box populer">
@@ -296,57 +278,55 @@ function Price({ initialData }) {
                       )}
                     </div>
                     <div className="row">
-                      {advance && advance.length > 0 ? (
-                        <div className="col-xl-5 col-md-6 col-12 mx-auto">
-                          <div className="pricing_box">
-                            <h3>Advance</h3>
-                            <p>{advance[0].description} </p>
-                            <h5>
+                      {advance && advance.length > 0 ? <div className="col-xl-5 col-md-6 col-12 mx-auto">
+                        <div className="pricing_box">
+                          <h3>Advance</h3>
+                          <p>{advance?.[0]?.description} </p>
+                          <h5>
+                            {" "}
+                            <del>${advance?.[0]?.regular_price}</del>{" "}
+                            <span className="badge text-bg-info">
                               {" "}
-                              <del>${advance[0].regular_price}</del>{" "}
-                              <span className="badge text-bg-info">
-                                {" "}
-                                SAVE{" "}
-                                {(((advance[0].regular_price -
-                                  advance[0].offer_price) *
-                                  100) /
-                                  advance[0].regular_price).toFixed(2)}
-                                %{" "}
-                              </span>
-                            </h5>
-                            <h2>
-                              <sub>$</sub>
-                              <span>{advance[0].offer_price.split(".")[0]}</span><span style={{ fontSize: 18 }}>.{advance[0].offer_price.split(".")[1]}</span>
-                              <sub>/{duration}</sub>
-                            </h2>
-                            <Link href={`/account-details?id=${advance[0].id}`}>
-                              Buy Now
-                            </Link>
-                            {/* <p>$1,279.00/mo when you renew</p> */}
-                            <div className="border_line" />
-                            <div className="feture_list">
-                              <h4>Top Features </h4>
-                              <ul>
-                                {advance[0].features.map((item, key) => {
-                                  return (
-                                    <li key={key}>
-                                      <p>
-                                        {" "}
-                                        <i className="fa-solid fa-circle-check" />{" "}
-                                        {item.name}
-                                      </p>
-                                    </li>
-                                  );
-                                })}
-                              </ul>
-                            </div>
+                              SAVE{" "}
+                              {(((advance?.[0]?.regular_price -
+                                advance?.[0]?.offer_price) *
+                                100) /
+                                advance?.[0]?.regular_price).toFixed(2)}
+                              %{" "}
+                            </span>
+                          </h5>
+                          <h2>
+                            <sub>$</sub>
+                            <span>{advance?.[0]?.offer_price.split(".")[0]}</span><span style={{ fontSize: 18 }}>.{advance?.[0]?.offer_price.split(".")[1]}</span>
+                            <sub>/{duration}</sub>
+                          </h2>
+                          <Link href={`/account-details?id=${advance?.[0]?.id}`}>
+                            Buy Now
+                          </Link>
+                          {/* <p>$1,279.00/mo when you renew</p> */}
+                          <div className="border_line" />
+                          <div className="feture_list">
+                            <h4>Top Features </h4>
+                            <ul>
+                              {advance?.[0]?.features.map((item, key) => {
+                                return (
+                                  <li key={key}>
+                                    <p>
+                                      {" "}
+                                      <i className="fa-solid fa-circle-check" />{" "}
+                                      {item?.name}
+                                    </p>
+                                  </li>
+                                );
+                              })}
+                            </ul>
                           </div>
                         </div>
-                      ) : (
-                        ""
-                      )}
+                      </div> : <></>}
+
                     </div>
                   </div>
+
                 </div>
               </div>
             </div>

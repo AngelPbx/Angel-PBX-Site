@@ -358,6 +358,11 @@ function AccountDetails() {
                                   name="email"
                                   type="email"
                                   placeholder="Enter Admin Email"
+                                  autoComplete="off"
+                                  onPaste={(e) => {
+                                    e.preventDefault();
+                                    return false;
+                                  }}
                                 />
                               </div>
                               <div className="col-xl-6 col-md-6 col-12">
@@ -398,6 +403,7 @@ function AccountDetails() {
                                   maxLength={17}
                                   placeholder="Enter Your Number"
                                   name="contactNumber"
+
                                   value={formData.contactNumber}
                                   onChange={(value) => {
                                     setFormData((prevState) => ({
@@ -408,6 +414,11 @@ function AccountDetails() {
                                       ...prevState,
                                       contactNumber: false,
                                     }));
+                                  }}
+                                  autoComplete="off"
+                                  onPaste={(e) => {
+                                    e.preventDefault();
+                                    return false;
                                   }}
                                 />
                                 {/* <input
@@ -436,6 +447,7 @@ function AccountDetails() {
                                   maxLength={17}
                                   placeholder="Enter Your Number"
                                   name="contactNumber"
+                                  autoComplete="off"
                                   value={formData.altNumber}
                                   onChange={(value) => {
                                     setFormData((prevState) => ({
@@ -446,6 +458,10 @@ function AccountDetails() {
                                       ...prevState,
                                       altNumber: false,
                                     }));
+                                  }}
+                                  onPaste={(e) => {
+                                    e.preventDefault();
+                                    return false;
                                   }}
                                 />
                                 {/* <input

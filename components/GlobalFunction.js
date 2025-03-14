@@ -1,13 +1,12 @@
 import axios from "axios"
 
-const baseUrl = "https://testing.webvio.in/backend/api"
-// const baseUrl = "http://127.0.0.1:8000/api"
+const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 
 // General Get Function
 export async function generalGetFunction (endpoint){
     return axios.get(`${baseUrl}/${endpoint}`
     ).then(res=>{
-        console.log("This is response",res.data);
+        // console.log("This is response",res.data);
         return res.data
         
     }).catch(err=>{
