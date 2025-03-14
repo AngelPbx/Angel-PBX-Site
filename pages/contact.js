@@ -3,7 +3,7 @@ import { generalPostFunction } from '@/components/GlobalFunction';
 import e from 'cors';
 import React, { useState, useEffect } from 'react'
 
-function contact() {
+function Contact() {
 
   const [formData, setFormData] = useState({
     firstname: "",
@@ -307,4 +307,4 @@ function contact() {
   )
 }
 
-export default contact
+export default Contact
