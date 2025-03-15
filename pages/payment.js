@@ -310,11 +310,11 @@ function Payment() {
         });
       } else {
         setLoading(false);
-        if(apidata.error){
-          toast.error(apidata.error);
+        if(apidata.message){
+          toast.error(apidata.message);
         }else{
-          const errorMessage = Object.keys(apidata.errors);
-          toast.error(apidata.errors[errorMessage[0]][0]);
+          const errorMessage = Object.keys(apidata.message);
+          toast.error(apidata.message[errorMessage[0]][0]);
         }
         
       }
