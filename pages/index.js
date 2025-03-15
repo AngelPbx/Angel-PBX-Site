@@ -360,7 +360,7 @@ export default function Home() {
                 <div className="icon-phone">
                   <div className="c">
                     <div className="d-flex align-items-center justify-content-center">
-                      <i class="fa-solid fa-mobile-screen-button"></i>
+                      <i className="fa-solid fa-mobile-screen-button"></i>
                     </div>
                   </div>
                   <h5>Clever Enterprise Effort
@@ -558,8 +558,8 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              {/* <div class="col-12">
-              <div class="our_brand">
+              {/* <div className="col-12">
+              <div className="our_brand">
                   <ul>
                       <li>
                           <h5>Travel</h5>
@@ -778,11 +778,11 @@ export default function Home() {
             <div className="center_box">
               <Link href="#">
                 {" "}
-                Contact Us <i class="fa-solid ms-2 fa-arrow-right"></i>{" "}
+                Contact Us <i className="fa-solid ms-2 fa-arrow-right"></i>{" "}
               </Link>
               <Link href="#" className="call_ctn">
                 {" "}
-                Call Now<i class="fa-solid ms-2 fa-arrow-right"></i>{" "}
+                Call Now<i className="fa-solid ms-2 fa-arrow-right"></i>{" "}
               </Link>
             </div>
           </div>

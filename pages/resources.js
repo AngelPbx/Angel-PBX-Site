@@ -31,7 +31,10 @@ function resources() {
                     Directing incoming calls to the appropriate extensions or departments.
                   </h3>
                   <div className='images-point'>
-                    <Image alt='image-point' src='https://www.crsl.es/img/cms/Extranet/Comunicaciones%20Empresa/Distribuci%C3%B3n/Oportunidades%20de%20negocio-2.jpg' />
+                    <Image alt='image-point' src='https://www.crsl.es/img/cms/Extranet/Comunicaciones%20Empresa/Distribuci%C3%B3n/Oportunidades%20de%20negocio-2.jpg' 
+                    width={500} 
+                    height={500}
+                    />
                   </div>
                 </div>
                 <div className='col-xl-6 d-flex align-items-center justify-content-center'>
@@ -51,7 +54,7 @@ function resources() {
           </div>
         </div>
       </section>
-      <section class="miniServices">
+      <section className="miniServices">
         <div className="container">
           <div className="row">
             <div className="col-xl-10 mx-auto sectionHeading text-center">
@@ -109,6 +112,8 @@ function resources() {
                     <Image
                       src="https://www.techslang.com/wp-content/uploads/2023/07/what-is-a-call-management-system-scaled-e1690365899471-1536x806.jpg"
                       alt="image"
+                      width={500}
+                      height={500}
                     />
                   </div>
                 </div>
@@ -145,6 +150,8 @@ function resources() {
                     <Image
                       src="https://www.voipfone.co.uk/media/images-resized/illustrations/misc-1200.png"
                       alt="image"
+                      width={500}
+                      height={500}
                     />
                   </div>
                 </div>

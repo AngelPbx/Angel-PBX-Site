@@ -666,14 +666,14 @@ function Payment() {
                           checked={saveCard}
                           onChange={(e) => setSaveCard(e.target.checked)}
                         />
-                        <label class="formLabel ms-2">
+                        <label className="formLabel ms-2">
                           Save this card for future use
                         </label>
                       </div>
                       <div className="col-12">
                         <button onClick={handleSubmit} className="payNow">
                           {" "}
-                          Pay Now <i class="mx-2 fa-duotone fa-credit-card"></i>
+                          Pay Now <i className="mx-2 fa-duotone fa-credit-card"></i>
                         </button>
                       </div>
                     </div>

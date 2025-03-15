@@ -6,6 +6,7 @@ import { authGetFunction, generalGetFunction, logOutFunction } from "./GlobalFun
 import { toast } from "react-toastify";
 import { useRouter } from "next/router";
 import CircularLoader from "./CircularLoader";
+import Image from "next/image";
 
 function Header() {
   const router = useRouter()
@@ -119,9 +120,11 @@ function Header() {
               <div className="wrapper">
                 <div className="brand">
                   <Link href="/">
-                    <img
+                    <Image
                       src="/assets/images/logo.png"
                       alt="LOGO"
+                      width={100}
+                      height={100}
                     />
                   </Link>
                 </div>
@@ -152,7 +155,7 @@ function Header() {
               </div>
 
               <div className="menubar d-lg-none d-xl-none" style={{ width: "max-content", marginLeft: "20px", fontSize: "20px", boxShadow: " rgba(0, 0, 0, 0.35) 0px 5px 15px" }} onClick={toggleMenu}>
-                <i class="fa-solid fa-bars"></i>
+                <i className="fa-solid fa-bars"></i>
 
 
               </div>
@@ -168,7 +171,7 @@ function Header() {
                   <div className=" display-side">
 
                     <div onClick={handleClickClose}>
-                      <i class="fa-solid fa-xmark"></i>
+                      <i className="fa-solid fa-xmark"></i>
                     </div>
 
                     <ul>

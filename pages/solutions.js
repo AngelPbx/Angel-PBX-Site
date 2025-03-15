@@ -41,6 +41,9 @@ function solutions() {
                       <Image
                         src="https://cdn-ilbgkhf.nitrocdn.com/purAKyjShVpiUUHKFExzGAxuRLXFYzrm/assets/images/optimized/rev-cc08d9f/myrepublic.net/sg/wp-content/uploads/sites/2/2024/03/Voice-Cloud-PBX-2000x2000-120324-1.png"
                         alt="image"
+                        width={500}
+                        height={500}
+                        fetchpriority='high'
                       />
                     </div>
                   </div>
@@ -142,6 +145,9 @@ function solutions() {
                     <Image
                       src="https://tevatel.com/wp-content/uploads/2024/06/predictive-dialer-software.jpg"
                       alt="image"
+                      width={500}
+                      height={500}
+                      fetchpriority='high'
                     />
                   </div>
                 </div>
@@ -259,6 +265,9 @@ function solutions() {
                     <Image
                       src="https://unity-connect.com/wp-content/uploads/2022/10/Inbound-Call-Center-Process-Outsourcing-Featured-Image_486994537-1024x683.jpg"
                       alt="image"
+                      width={600}
+                      height={400}
+                      fetchpriority='high'
                     />
                   </div>
                 </div>
@@ -442,6 +451,9 @@ function solutions() {
                     <Image
                       src="https://cdn-aekfi.nitrocdn.com/BhHUnZmQXkWPzBaLMaTftVhEvszyNTtP/assets/images/source/rev-6880cb6/www.timedoctor.com/blog/images/2021/06/call-center-automation1-1170x658.jpg.webp"
                       alt="image"
+                      width={600}
+                      height={600}
+                      fetchpriority='high'
                     />
                   </div>
                 </div>
@@ -477,6 +489,9 @@ function solutions() {
                     <Image
                       src="https://nobelbiz.com/wp-content/uploads/2024/05/What-is-Call-Blending.jpg"
                       alt="image"
+                      width={600}
+                      height={600}
+                      fetchpriority='high'
                     />
                   </div>
                 </div>
@@ -655,9 +670,9 @@ function solutions() {
 
             </div>
           </div>
-          <div class="row flex-row-reverse align-items-center">
-            <div class="col-md-7">
-              <div class="calling-feature1 calling-feature">
+          <div className="row flex-row-reverse align-items-center">
+            <div className="col-md-7">
+              <div className="calling-feature1 calling-feature">
                 <h2>  Experience High Sale Volume With Numbers</h2>
                 <br></br>
                 <p>  To spread your business over the globe, it is important to form a connection between your organization and global clients. Our extensive list of features and utility tools related to the best toll free number service can get you the maximum profit with assured connectivity. </p>
@@ -669,6 +684,9 @@ function solutions() {
                 <Image
                   src="https://3.imimg.com/data3/CI/SV/MY-7396258/tollfree-number-1800-500x500.gif"
                   alt="image"
+                  width={400}
+                  height={400}
+                  fetchpriority='high'
                 />
               </div>
             </div>
@@ -688,17 +706,20 @@ function solutions() {
               </div>
             </div>
           </div>
-          <div class="row flex-row-reverse align-items-center">
+          <div className="row flex-row-reverse align-items-center">
             <div className='col-md-5'>
               <div className="images-point">
                 <Image
                   src="https://tiimg.tistatic.com/fp/1/008/385/caller-id-voice-mail-lcd-screen-caller-transfer-button-keypad-landline-phones-835.jpg"
                   alt="image"
+                  width={400}
+                  height={400}
+                  fetchpriority='high'
                 />
               </div>
             </div>
-            <div class="col-md-7">
-              <div class="calling-feature1 calling-feature">
+            <div className="col-md-7">
+              <div className="calling-feature1 calling-feature">
                 <h2> Never Miss a Client With Our Unique Local Phone Number</h2>
                 <br></br>
                 <p>The virtual local phone number will make your clients, colleagues and even your customers feel more connected to you, eliminating the distance barriers. Buy a local phone number to connect with all your clients, customers and even colleagues while the barrier of distance is totally removed.</p>
@@ -707,9 +728,9 @@ function solutions() {
             </div>
 
           </div>
-          <div class="row mt-5 flex-row-reverse align-items-center">
-            <div class="col-md-7">
-              <div class="calling-feature1 calling-feature">
+          <div className="row mt-5 flex-row-reverse align-items-center">
+            <div className="col-md-7">
+              <div className="calling-feature1 calling-feature">
                 <h2>Create A Local Presence With Local Business Numbers.
                 </h2>
                 <br></br>
@@ -726,6 +747,9 @@ function solutions() {
                 <Image
                   src="https://wavetelbusiness.co.uk/media/jdpje0ky/local-phone-numbers.jpg"
                   alt="image"
+                  width={400}
+                  height={400}
+                  fetchpriority='high'
                 />
               </div>
             </div>
@@ -993,9 +1017,9 @@ function solutions() {
               </div>
             </div>
           </div>
-          <div class="row flex-row-reverse align-items-center">
-            <div class="col-md-6">
-              <div class="calling-feature1 calling-feature">
+          <div className="row flex-row-reverse align-items-center">
+            <div className="col-md-6">
+              <div className="calling-feature1 calling-feature">
                 <h2> Upgrade Your Business to a Digital Platform With Virtual Office Phone Systems</h2>
                 <br></br>
                 <p>A virtual office phone system for business is one that uses hosted PBX to establish connectivity. It is different from the traditional set-up in the sense that the latter uses an on-premise PBX. </p>
@@ -1009,21 +1033,27 @@ function solutions() {
                 <Image
                   src="https://www.nextiva.com/cdn-cgi/image/width=1024,height=576,fit=cover,gravity=auto,format=auto/blog/wp-content/uploads/sites/10/2024/07/Virtual-Phone-System.png"
                   alt="image"
+                  width={500}
+                  height={500}
+                  fetchpriority='high'
                 />
               </div>
             </div>
           </div>
-          <div class="row mt-5 flex-row-reverse align-items-center">
+          <div className="row mt-5 flex-row-reverse align-items-center">
             <div className='col-md-5'>
               <div className="images-point">
                 <Image
                   src="https://www.nextiva.com/cdn-cgi/image/width=1024,height=576,fit=cover,gravity=auto,format=auto/blog/wp-content/uploads/sites/10/2022/06/150-H-What-is-Voip.jpg"
                   alt="image"
+                  width={500}
+                  height={500}
+                  fetchpriority='high'
                 />
               </div>
             </div>
-            <div class="col-md-7">
-              <div class="calling-feature1 calling-feature">
+            <div className="col-md-7">
+              <div className="calling-feature1 calling-feature">
                 <h2>Enhance Your Professional Communication With a Virtual Phone System.
                 </h2>
                 <br></br>

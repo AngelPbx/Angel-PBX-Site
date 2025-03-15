@@ -199,7 +199,7 @@ const OTPInput = ({ email, id, leadId }) => {
             </clipPath>
           </defs>
         </svg>
-        <div class="title">Verification Code</div>
+        <div className="title">Verification Code</div>
         <p>
           We have sent a verification code to your email - {email}
         </p>

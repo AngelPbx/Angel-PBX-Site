@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import { generalPostFunction } from './GlobalFunction';
+import Image from 'next/image';
 
 function Footer() {
 
@@ -48,6 +49,8 @@ function Footer() {
                         <img
                           src="/assets/images/logo.png"
                           alt="LOGO"
+                          // width={100}
+                          // height={100}
                         />
                       </Link>
                     </div>

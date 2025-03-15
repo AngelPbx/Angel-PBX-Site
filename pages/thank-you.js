@@ -72,7 +72,7 @@ function ThankYou() {
                         className="back_tohome me-4"
                       >
                         {" "}
-                        <i class="fa-solid fa-arrow-down-to-line me-1"></i>{" "}
+                        <i className="fa-solid fa-arrow-down-to-line me-1"></i>{" "}
                         Download Invoice{" "}
                       </a>
                     </div>
