@@ -11,7 +11,6 @@ function solutions() {
               <div className="heading_box">
                 <h1>Call Center Solutions </h1>
                 <h5>Why Angel PBX Serves Call Center Phone Systems best? </h5>
-
               </div>
             </div>
           </div>
@@ -25,13 +24,10 @@ function solutions() {
               <div className="heading_box">
                 <div className='row'>
                   <div className='col-xl-7 col-lg-7 col-md-7 '>
-                    <h2 className='text-center'>PBX call center efficiently routes and manages incoming and outgoing calls, providing a centralized hub for business communications.</h2>
-                    <br></br>
-                    <p>We are committed to producing the best quality cloud call center solutions that would fit best for your industry and serve all your communication needs. </p>
-                    <br></br>
+                    <h2 className='mb-2'>PBX call center efficiently routes and manages incoming and outgoing calls, providing a centralized hub for business communications.</h2>
+                    <p className='mb-2'>We are committed to producing the best quality cloud call center solutions that would fit best for your industry and serve all your communication needs. </p>
                     {/* <p>Our cloud call center software is free of bugs and gives you a strong database to manage all your incoming and outgoing calls. With it, your employees and agents connect with each other and entertain customers from remote corners of the world. This enhances the productivity of your enterprise. You can thus successfully remove the added hassles of space and time from your regular functioning.</p> */}
-                    <br></br>
-                    <p>The call center software solutions provided by  <span style={{ fontWeight: 'bold', color: 'red' }}>Angel PBX</span> give you superior quality voice calling. Using this system, you can keep a detailed and analytic report of all the calls received. and made by your agents. With this, you can have support for all your future call references. You can also manage the quality of calls as well as the efficiency of your agents in their particular fields. </p>
+                    <p className='mb-2'>The call center software solutions provided by  <span style={{ fontWeight: 'bold', color: 'red' }}>Angel PBX</span> give you superior quality voice calling. Using this system, you can keep a detailed and analytic report of all the calls received. and made by your agents. With this, you can have support for all your future call references. You can also manage the quality of calls as well as the efficiency of your agents in their particular fields. </p>
                     {/* <p>Even during hours of rush, our call center software solutions would not break. It is designed to support organizations during rush hours with perfect ease and stability. Our team of technicians provides you with the best support any time you need it. You can also customize the specific features according to your organization or client’s requirements with our cloud call center phone systems.</p> */}
                   </div>
 
@@ -182,14 +178,11 @@ function solutions() {
                     </div>
                     <div className="col-xl-6 gap-2 col-md-6 col-sm-6 col-12">
                       <div className="content_wraper">
-
                         <div className="text_box col-xl-12 col-12">
                           <h3>SMART DIALING
                           </h3>
                           <p>
                             The smart dialing algorithm is one of our best predictive dialer for call center services. This lets you predict the dialing numbers and helps in the maintenance of records, as well as makes your task of looking for new contacts and leads smoother. It cuts down the time you spend on calling your customers while locating their positions. By optimizing these factors, productivity can be restored.
-
-
                           </p>
                           {/* <Link href="/" className="specialLearn">
                             {" "}
@@ -200,7 +193,6 @@ function solutions() {
                     </div>
                     <div className="col-xl-6 mb-3 col-md-6 col-sm-6 col-12">
                       <div className="content_wraper">
-
                         <div className="text_box col-xl-12 col-12">
                           <h3>PROGRESSIVE IVR
                           </h3>
@@ -218,7 +210,6 @@ function solutions() {
                     </div>
                     <div className="col-xl-6 mb-3 col-md-6 col-sm-6 col-12">
                       <div className="content_wraper">
-
                         <div className="text_box col-xl-12 col-12">
                           <h3>REAL-TIME SCRUTINISING AND REPORTING
                           </h3>
@@ -247,7 +238,6 @@ function solutions() {
                         </div>
                       </div>
                     </div>
-
                   </div>
                 </div>
               </section>
@@ -658,7 +648,7 @@ function solutions() {
 
 
 
-      <section className="industries pb-4 mt-4" id="industries">
+      <section className="industries pb-4 mt-4 solutionsToll" id="industries">
         <div className="container">
           <div className="row">
             <div className="col-xl-10 mx-auto sectionHeading text-center">
@@ -695,7 +685,7 @@ function solutions() {
       </section>
 
 
-      <section className="industries pb-4 mt-4" id="industries">
+      <section className="industries pb-4 mt-4 solutionsToll" id="industries">
         <div className="container">
           <div className="row">
             <div className="col-xl-10 mx-auto sectionHeading text-center">
@@ -765,10 +755,9 @@ function solutions() {
 
       <section className="services">
         <div className="container">
-          <div className="row g-5 g-xl-4">
-            <div className=" col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6 mx-auto">
+          <div className="row g-5 g-xl-4 justify-content-center">
+            <div className=" col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6">
               <div className="wrapper">
-
                 <div className="serviceContent  serviceContents-test h-0" id="a">
                   <div className=" text-center">
                     <div>
@@ -798,7 +787,7 @@ function solutions() {
                 </div>
               </div>
             </div>
-            <div className=" col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6 mx-auto">
+            <div className=" col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6">
               <div className="wrapper">
 
                 <div className="serviceContent  serviceContents-test" id="b">
@@ -827,7 +816,7 @@ function solutions() {
                 </div>
               </div>
             </div>
-            <div className=" col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6 mx-auto">
+            <div className=" col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6">
               <div className="wrapper">
 
                 <div className="serviceContent  serviceContents-test" id="c">
@@ -856,7 +845,7 @@ function solutions() {
                 </div>
               </div>
             </div>
-            <div className=" col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6 mx-auto">
+            <div className=" col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6">
               <div className="wrapper">
 
                 <div className="serviceContent  serviceContents-test" id="d">
@@ -883,7 +872,7 @@ function solutions() {
                 </div>
               </div>
             </div>
-            <div className=" col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6 mx-auto">
+            <div className=" col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6">
               <div className="wrapper">
 
                 <div className="serviceContent  serviceContents-test" id="a">
@@ -914,7 +903,7 @@ function solutions() {
                 </div>
               </div>
             </div>
-            <div className=" col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6 mx-auto">
+            <div className=" col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6">
               <div className="wrapper wrappers">
 
                 <div className="serviceContent  serviceContents-test" id="b">
@@ -943,7 +932,7 @@ function solutions() {
                 </div>
               </div>
             </div>
-            <div className=" col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6 mx-auto">
+            <div className=" col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6">
               <div className="wrapper">
 
                 <div className="serviceContent  serviceContents-test" id="c">
@@ -972,7 +961,7 @@ function solutions() {
                 </div>
               </div>
             </div>
-            <div className=" col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6 mx-auto">
+            <div className=" col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6">
               <div className="wrapper">
                 <div className="serviceContent  serviceContents-test" id="d">
                   <div className="text-center">

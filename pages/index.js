@@ -314,8 +314,8 @@ export default function Home() {
         </section>
         <section className="services">
           <div className="container">
-            <div className="row mt-5 ">
-              <div className="col-xl-4 mb-5 col-md-6 col-12">
+            <div className="row gy-4">
+              <div className="col-xl-4 col-md-6 col-12">
                 <div className="icon-phone">
                   <div className="a">
                     <div className="d-flex align-items-center justify-content-center">
@@ -332,11 +332,8 @@ export default function Home() {
                     Learn More
                   </a>
                 </div>
-
-
-
               </div>
-              <div className="col-xl-4 mb-5 col-md-6 col-12">
+              <div className="col-xl-4 col-md-6 col-12">
                 <div className="icon-phone">
                   <div className="b">
                     <div className="d-flex align-items-center justify-content-center">
@@ -356,7 +353,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <div className="col-xl-4 mb-5 col-md-6 col-12">
+              <div className="col-xl-4 col-md-6 col-12">
                 <div className="icon-phone">
                   <div className="c">
                     <div className="d-flex align-items-center justify-content-center">
@@ -377,11 +374,7 @@ export default function Home() {
                 </div>
 
               </div>
-
-            </div>
-            <div className="row mt-5 ">
-
-              <div className="col-xl-4 mt-5 col-md-6 col-12">
+              <div className="col-xl-4 col-md-6 col-12">
                 <div className="icon-phone">
                   <div className="d">
                     <div className="d-flex align-items-center justify-content-center">
@@ -400,7 +393,7 @@ export default function Home() {
                   </a>
                 </div>
               </div>
-              <div className="col-xl-4 mt-5 col-md-6 col-12">
+              <div className="col-xl-4 col-md-6 col-12">
                 <div className="icon-phone">
                   <div className="e">
                     <div className="d-flex align-items-center justify-content-center">
@@ -420,7 +413,7 @@ export default function Home() {
                   </a>
                 </div>
               </div>
-              <div className="col-xl-4 mt-5 col-md-6 col-12">
+              <div className="col-xl-4 col-md-6 col-12">
                 <div className="icon-phone">
                   <div className="f">
                     <div className="d-flex align-items-center justify-content-center">
@@ -439,7 +432,6 @@ export default function Home() {
                     Learn More
                   </a>
                 </div>
-
               </div>
             </div>
           </div>

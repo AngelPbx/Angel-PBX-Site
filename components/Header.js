@@ -149,31 +149,20 @@ function Header() {
             </div>
             <div className="col-xl-2 col-lg-2 col-md-3 col-3 text-end ">
               <div className="menubarhide " style={{ width: "max-content", marginRight: 20 }}>
-                <a target="_blank" href="https://ucaas.webvio.in/" className="specialLearn m-0">
+                <a target="_blank" href="https://ucaas.webvio.in/" className="specialLearn m-0 text-white">
                   Go To App
                 </a>
               </div>
-
               <div className="menubar d-lg-none d-xl-none" style={{ width: "max-content", marginLeft: "20px", fontSize: "20px", boxShadow: " rgba(0, 0, 0, 0.35) 0px 5px 15px" }} onClick={toggleMenu}>
                 <i className="fa-solid fa-bars"></i>
-
-
               </div>
 
-
-
               <div className="wrapper-mobile ">
-
-
-
                 <div className={`mobile-menu-dropdown ${isMenuOpen ? "active" : ""}`}>
-
                   <div className=" display-side">
-
                     <div onClick={handleClickClose}>
                       <i className="fa-solid fa-xmark"></i>
                     </div>
-
                     <ul>
                       <li>
                         <Link href="/">Products</Link>
@@ -194,9 +183,6 @@ function Header() {
                   </div>
                 </div>
               </div>
-
-
-
 
               {/* <p
                 style={{cursor:"pointer"}}

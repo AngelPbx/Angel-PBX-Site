@@ -31,15 +31,15 @@ function resources() {
                     Directing incoming calls to the appropriate extensions or departments.
                   </h3>
                   <div className='images-point'>
-                    <Image alt='image-point' src='https://www.crsl.es/img/cms/Extranet/Comunicaciones%20Empresa/Distribuci%C3%B3n/Oportunidades%20de%20negocio-2.jpg' 
-                    width={500} 
-                    height={500}
+                    <Image alt='image-point' src='https://www.crsl.es/img/cms/Extranet/Comunicaciones%20Empresa/Distribuci%C3%B3n/Oportunidades%20de%20negocio-2.jpg'
+                      width={500}
+                      height={500}
                     />
                   </div>
                 </div>
                 <div className='col-xl-6 d-flex align-items-center justify-content-center'>
                   <div className='heading_box'>
-                
+
                     <h1 className='mb-4'>
                       The Calling Features of Angel PBX
                     </h1>
@@ -172,7 +172,7 @@ function resources() {
                   </div>
                 </div>
               </div>
-              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -184,8 +184,8 @@ function resources() {
 
       <section className="services">
         <div className="container">
-          <div className="row g-5 g-xl-4">
-            <div className=" col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6 mx-auto">
+          <div className="row g-5 g-xl-4 justify-content-center">
+            <div className=" col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6">
               <div className="wrapper">
 
                 <div className="serviceContent  serviceContents-test h-0" id="a">
@@ -217,7 +217,7 @@ function resources() {
                 </div>
               </div>
             </div>
-            <div className=" col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6 mx-auto">
+            <div className=" col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6">
               <div className="wrapper">
 
                 <div className="serviceContent  serviceContents-test" id="b">
@@ -246,7 +246,7 @@ function resources() {
                 </div>
               </div>
             </div>
-            <div className=" col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6 mx-auto">
+            <div className=" col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6">
               <div className="wrapper">
 
                 <div className="serviceContent  serviceContents-test" id="c">
@@ -275,7 +275,7 @@ function resources() {
                 </div>
               </div>
             </div>
-            <div className=" col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6 mx-auto">
+            <div className=" col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6">
               <div className="wrapper">
 
                 <div className="serviceContent  serviceContents-test" id="d">
@@ -302,7 +302,7 @@ function resources() {
                 </div>
               </div>
             </div>
-            <div className=" col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6 mx-auto">
+            <div className=" col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6">
               <div className="wrapper">
 
                 <div className="serviceContent  serviceContents-test" id="a">
@@ -333,7 +333,7 @@ function resources() {
                 </div>
               </div>
             </div>
-            <div className=" col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6 mx-auto">
+            <div className=" col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6">
               <div className="wrapper wrappers">
 
                 <div className="serviceContent  serviceContents-test" id="b">
@@ -362,7 +362,7 @@ function resources() {
                 </div>
               </div>
             </div>
-            <div className=" col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6 mx-auto">
+            <div className=" col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6">
               <div className="wrapper">
 
                 <div className="serviceContent  serviceContents-test" id="c">
@@ -391,7 +391,7 @@ function resources() {
                 </div>
               </div>
             </div>
-            <div className=" col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6 mx-auto">
+            <div className=" col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6">
               <div className="wrapper">
                 <div className="serviceContent  serviceContents-test" id="d">
                   <div className="text-center">

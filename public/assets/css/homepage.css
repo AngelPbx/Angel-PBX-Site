@@ -54,7 +54,7 @@
     font-size: 22px;
     font-weight: 400;
     line-height: 30px;
-    margin-top: 25px;
+    margin: 25px 0 20px;
 }
 
 /* ------------------- services ----------------  */
@@ -226,7 +226,7 @@
     box-shadow: #a7f0ff40 0px 0px 20px 6px;
 }
 
-.main .images-point img {
+/* .main .images-point img {
     width: 80%;
     height: 80%;
     object-fit: cover;
@@ -234,14 +234,13 @@
     margin-left: 10px;
     border: 4px solid #ffffff;
     box-shadow: #a7f0ff40 0px 0px 20px 6px;
-
-}
+} */
 
 .main .images-point img {
     /* width:auto !important; */
-    height: 80%;
+    height: 100%;
     width: 100%;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 0px;
     /* margin-left: 0px; */
     border: 4px solid #ffffff;
@@ -265,14 +264,18 @@ main .images-positions {
 }
 
 .industries .tab-content .content h3 {
-    margin-bottom: 50px;
-    font-size: 40px;
+    margin-bottom: 20px;
+    font-size: 32px;
     font-weight: 600;
     font-family: Lexend;
 }
 
 .industries ul {
     margin-bottom: 30px !important;
+}
+
+.solutionsToll .images-point {
+    height: 300px;
 }
 
 /* ------------------------------------------------------- */
@@ -401,7 +404,7 @@ main .images-positions {
 
 
 .services .icon-phone p {
-    margin-bottom: 10px;
+    margin: 10px 0;
     font-size: 15px;
 }
 

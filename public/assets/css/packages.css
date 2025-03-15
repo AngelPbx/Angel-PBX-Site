@@ -519,6 +519,7 @@
     font-family: var(--sub-para);
     color: #454545;
     padding: 15px 0 0;
+    margin-bottom: 10px;
 }
 
 /* .trusted_partnersection .content_wraper .text_box a {
@@ -593,9 +594,7 @@
 }
 
 
-.pricing_section .elements-item ul li {
-    
-}
+.pricing_section .elements-item ul li {}
 
 
 /*===End===*/
