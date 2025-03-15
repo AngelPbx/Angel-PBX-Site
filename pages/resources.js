@@ -31,9 +31,9 @@ function resources() {
                     Directing incoming calls to the appropriate extensions or departments.
                   </h3>
                   <div className='images-point'>
-                    <Image alt='image-point' src='https://www.crsl.es/img/cms/Extranet/Comunicaciones%20Empresa/Distribuci%C3%B3n/Oportunidades%20de%20negocio-2.jpg'
-                      width={500}
-                      height={500}
+                    <img alt='image-point' src='https://www.crsl.es/img/cms/Extranet/Comunicaciones Empresa/Distribución/Oportunidades de negocio-2.jpg'
+                      // width={500}
+                      // height={500}
                     />
                   </div>
                 </div>
