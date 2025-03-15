@@ -24,6 +24,7 @@ function AccountDetails() {
   const [openOTP, setOpenOTP] = useState(false);
   const [submitEmail, setSubmitEmail] = useState("");
   const [leadId, setLeadId] = useState("");
+
   useEffect(() => {
     if (router.isReady) {
       if (routerData.id === null || routerData.id === undefined) {
@@ -46,6 +47,7 @@ function AccountDetails() {
       }
     }
   }, [router, routerData]);
+
   const [activeState, setActiveState] = useState("account");
   const [formData, setFormData] = useState({
     companyName: "",

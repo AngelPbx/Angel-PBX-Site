@@ -40,6 +40,7 @@ function ThankYou() {
       }
     }
   };
+  
   return (
     <>
       <style>
@@ -58,7 +59,7 @@ function ThankYou() {
                   {" "}
                   Thank You <span> ! </span>{" "}
                 </h1>
-                <p>{message}</p>
+                <p>{message ? message : ""}</p>
                 <img
                   src="/assets/images/thankyou_icon1.png"
                   alt="Mediaringer"
