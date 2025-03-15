@@ -8,7 +8,7 @@ function ThankYou() {
   const router = useRouter();
   const message = useSelector((state) => state.thankYouMessage);
   const invoiceLink = useSelector((state) => state.invoiceLink);
-  console.log("This is invoice link",invoiceLink);
+  
   useEffect(() => {
     if (message === null || message === "") {
       router.back();

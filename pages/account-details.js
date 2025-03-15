@@ -757,7 +757,7 @@ function AccountDetails() {
                                 </clipPath>
                               </defs>
                             </svg>
-                            <div class="title">Verification Code</div>
+                            <div className="title">Verification Code</div>
                             <p>
                               We have sent a verification code to your mobile
                               number - (XXX) XXX XX91

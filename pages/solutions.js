@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import Image from 'next/image';
 
 function solutions() {
   return (
@@ -37,9 +38,9 @@ function solutions() {
 
                   <div className="col-xl-5 col-lg-5 col-md-5 my-auto">
                     <div className="images-point">
-                      <img
+                      <Image
                         src="https://cdn-ilbgkhf.nitrocdn.com/purAKyjShVpiUUHKFExzGAxuRLXFYzrm/assets/images/optimized/rev-cc08d9f/myrepublic.net/sg/wp-content/uploads/sites/2/2024/03/Voice-Cloud-PBX-2000x2000-120324-1.png"
-                        alt=""
+                        alt="image"
                       />
                     </div>
                   </div>
@@ -53,7 +54,7 @@ function solutions() {
       </section>
 
 
-      <section className="industries pb-4 mt-4" id="industries" style={{backgroundColor:"white"}}>
+      <section className="industries pb-4 mt-4" id="industries" style={{ backgroundColor: "white" }}>
         <div className="container">
           <div className="row">
             <div className="col-xl-10 mx-auto sectionHeading text-center">
@@ -138,9 +139,9 @@ function solutions() {
               <div className="row">
                 <div className="col-xl-5 col-lg-5 col-md-6 my-auto">
                   <div className="images-point">
-                    <img
+                    <Image
                       src="https://tevatel.com/wp-content/uploads/2024/06/predictive-dialer-software.jpg"
-                      alt=""
+                      alt="image"
                     />
                   </div>
                 </div>
@@ -255,9 +256,9 @@ function solutions() {
               <div className="row">
                 <div className="col-xl-6 my-auto">
                   <div className="images-point">
-                    <img
+                    <Image
                       src="https://unity-connect.com/wp-content/uploads/2022/10/Inbound-Call-Center-Process-Outsourcing-Featured-Image_486994537-1024x683.jpg"
-                      alt=""
+                      alt="image"
                     />
                   </div>
                 </div>
@@ -438,9 +439,9 @@ function solutions() {
               <div className="row">
                 <div className="col-xl-6 my-auto">
                   <div className="images-point">
-                    <img
+                    <Image
                       src="https://cdn-aekfi.nitrocdn.com/BhHUnZmQXkWPzBaLMaTftVhEvszyNTtP/assets/images/source/rev-6880cb6/www.timedoctor.com/blog/images/2021/06/call-center-automation1-1170x658.jpg.webp"
-                      alt=""
+                      alt="image"
                     />
                   </div>
                 </div>
@@ -473,9 +474,9 @@ function solutions() {
               <div className="row">
                 <div className="col-xl-5 my-auto">
                   <div className="images-point">
-                    <img
+                    <Image
                       src="https://nobelbiz.com/wp-content/uploads/2024/05/What-is-Call-Blending.jpg"
-                      alt=""
+                      alt="image"
                     />
                   </div>
                 </div>
@@ -647,11 +648,11 @@ function solutions() {
           <div className="row">
             <div className="col-xl-10 mx-auto sectionHeading text-center">
               <div className='content'>
-              <h1>
-                Our Toll-free Numbers
-              </h1>
+                <h1>
+                  Our Toll-free Numbers
+                </h1>
               </div>
-            
+
             </div>
           </div>
           <div class="row flex-row-reverse align-items-center">
@@ -665,9 +666,9 @@ function solutions() {
             </div>
             <div className='col-md-5'>
               <div className="images-point">
-                <img
+                <Image
                   src="https://3.imimg.com/data3/CI/SV/MY-7396258/tollfree-number-1800-500x500.gif"
-                  alt=""
+                  alt="image"
                 />
               </div>
             </div>
@@ -680,19 +681,19 @@ function solutions() {
         <div className="container">
           <div className="row">
             <div className="col-xl-10 mx-auto sectionHeading text-center">
-            <div className='content'>
-              <h1>
-               Local Numbers
-              </h1>
+              <div className='content'>
+                <h1>
+                  Local Numbers
+                </h1>
               </div>
             </div>
           </div>
           <div class="row flex-row-reverse align-items-center">
-          <div className='col-md-5'>
+            <div className='col-md-5'>
               <div className="images-point">
-                <img
+                <Image
                   src="https://tiimg.tistatic.com/fp/1/008/385/caller-id-voice-mail-lcd-screen-caller-transfer-button-keypad-landline-phones-835.jpg"
-                  alt=""
+                  alt="image"
                 />
               </div>
             </div>
@@ -704,10 +705,10 @@ function solutions() {
                 {/* <p>By choosing our service, you can customize your business setup, improve business productivity, and evaluate agents’ performance to ensure that your customers are informed with appropriate information. Our toll free number for business dashboard and several other tools help you analyze your client’s performance in real-time. Create an impression with our unique 1 - 800 brand number. Reach out to us to be able to buy<span style={{ fontWeight: 'bold', color: 'red' }}>  Toll free number</span>. </p> */}
               </div>
             </div>
-         
+
           </div>
           <div class="row mt-5 flex-row-reverse align-items-center">
-          <div class="col-md-7">
+            <div class="col-md-7">
               <div class="calling-feature1 calling-feature">
                 <h2>Create A Local Presence With Local Business Numbers.
                 </h2>
@@ -722,13 +723,13 @@ function solutions() {
             </div>
             <div className='col-md-5'>
               <div className="images-point">
-                <img
+                <Image
                   src="https://wavetelbusiness.co.uk/media/jdpje0ky/local-phone-numbers.jpg"
-                  alt=""
+                  alt="image"
                 />
               </div>
             </div>
-           
+
 
           </div>
         </div>
@@ -979,17 +980,17 @@ function solutions() {
 
 
 
-      
+
       <section className="industries pb-4 mt-4" id="industries">
         <div className="container">
           <div className="row">
             <div className="col-xl-10 mx-auto sectionHeading text-center">
-          
-          <div className='content'>
-              <h1>
-              Virtual Office Phone System
-              </h1>
-            </div>
+
+              <div className='content'>
+                <h1>
+                  Virtual Office Phone System
+                </h1>
+              </div>
             </div>
           </div>
           <div class="row flex-row-reverse align-items-center">
@@ -1005,9 +1006,9 @@ function solutions() {
             </div>
             <div className='col-md-6'>
               <div className="images-point">
-                <img
+                <Image
                   src="https://www.nextiva.com/cdn-cgi/image/width=1024,height=576,fit=cover,gravity=auto,format=auto/blog/wp-content/uploads/sites/10/2024/07/Virtual-Phone-System.png"
-                  alt=""
+                  alt="image"
                 />
               </div>
             </div>
@@ -1015,9 +1016,9 @@ function solutions() {
           <div class="row mt-5 flex-row-reverse align-items-center">
             <div className='col-md-5'>
               <div className="images-point">
-                <img
+                <Image
                   src="https://www.nextiva.com/cdn-cgi/image/width=1024,height=576,fit=cover,gravity=auto,format=auto/blog/wp-content/uploads/sites/10/2022/06/150-H-What-is-Voip.jpg"
-                  alt=""
+                  alt="image"
                 />
               </div>
             </div>
@@ -1028,7 +1029,7 @@ function solutions() {
                 <br></br>
                 <p>As convenient as it may sound, establishing your business on virtual ground is not an easy task. However, with our innovative cloud call center, this is possible. </p>
                 <p>
-                The best Virtual phone systems for small businesses make it possible for you to manage freelance employees all around the world. This cuts a considerable part of your organization’s costs. 
+                  The best Virtual phone systems for small businesses make it possible for you to manage freelance employees all around the world. This cuts a considerable part of your organization’s costs.
 
                 </p>
                 {/* <p>By choosing our service, you can customize your business setup, improve business productivity, and evaluate agents’ performance to ensure that your customers are informed with appropriate information. Our toll free number for business dashboard and several other tools help you analyze your client’s performance in real-time. Create an impression with our unique 1 - 800 brand number. Reach out to us to be able to buy<span style={{ fontWeight: 'bold', color: 'red' }}>  Toll free number</span>. </p> */}

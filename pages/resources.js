@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 
 function resources() {
   return (
@@ -30,7 +31,7 @@ function resources() {
                     Directing incoming calls to the appropriate extensions or departments.
                   </h3>
                   <div className='images-point'>
-                    <img src='https://www.crsl.es/img/cms/Extranet/Comunicaciones%20Empresa/Distribuci%C3%B3n/Oportunidades%20de%20negocio-2.jpg' />
+                    <Image alt='image-point' src='https://www.crsl.es/img/cms/Extranet/Comunicaciones%20Empresa/Distribuci%C3%B3n/Oportunidades%20de%20negocio-2.jpg' />
                   </div>
                 </div>
                 <div className='col-xl-6 d-flex align-items-center justify-content-center'>
@@ -105,9 +106,9 @@ function resources() {
               <div className="row mt-5">
                 <div className="col-xl-6 my-auto">
                   <div className="images-point">
-                    <img
+                    <Image
                       src="https://www.techslang.com/wp-content/uploads/2023/07/what-is-a-call-management-system-scaled-e1690365899471-1536x806.jpg"
-                      alt=""
+                      alt="image"
                     />
                   </div>
                 </div>
@@ -141,9 +142,9 @@ function resources() {
               <div className="row mt-5">
                 <div className="col-xl-6 my-auto">
                   <div className="images-point">
-                    <img
+                    <Image
                       src="https://www.voipfone.co.uk/media/images-resized/illustrations/misc-1200.png"
-                      alt=""
+                      alt="image"
                     />
                   </div>
                 </div>

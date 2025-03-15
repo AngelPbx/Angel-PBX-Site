@@ -47,7 +47,7 @@ function Price({ initialData }) {
     setAdvance([...filteredAdvance]);
 
   }, [data, minimum, duration, maximum]);
-  console.log("This is server side rendered data", data);
+  
   return (
     <>
       <div className="main">

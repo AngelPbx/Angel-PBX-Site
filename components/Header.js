@@ -151,7 +151,7 @@ function Header() {
                 </a>
               </div>
 
-              <div className="menubar d-lg-none d-xl-none" style={{ width: "max-content", marginLeft: "20px", fontSize: "20px", boxShadow: " rgba(0, 0, 0, 0.35) 0px 5px 15px; " }} onClick={toggleMenu}>
+              <div className="menubar d-lg-none d-xl-none" style={{ width: "max-content", marginLeft: "20px", fontSize: "20px", boxShadow: " rgba(0, 0, 0, 0.35) 0px 5px 15px" }} onClick={toggleMenu}>
                 <i class="fa-solid fa-bars"></i>
 
 

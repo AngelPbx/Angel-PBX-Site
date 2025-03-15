@@ -7,7 +7,7 @@ const NotFoundPage = () => {
   useEffect(() => {
     // Redirect to the homepage
     router.push('/');
-  }, []);
+  }, [router]);
 
   return null;
 };

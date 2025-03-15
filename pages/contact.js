@@ -1,7 +1,8 @@
 import CircularLoader from '@/components/CircularLoader';
 import { generalPostFunction } from '@/components/GlobalFunction';
 import e from 'cors';
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
+import Image from "next/image";
 
 function Contact() {
 
@@ -131,8 +132,7 @@ function Contact() {
             </div>
             <div className='col-md-6'>
               <div className='images-point ms-5 images-positions '>
-                <img className='ms-5' src='https://www.aircanada.com/content/dam/aircanada/portal/images/content-images/fly/customer-support/helpful-links-4.jpg' />
-
+                <Image className='ms-5' alt='image' src='https://www.aircanada.com/content/dam/aircanada/portal/images/content-images/fly/customer-support/helpful-links-4.jpg' />
               </div>
             </div>
 
@@ -297,7 +297,7 @@ function Contact() {
             </div>
             <div className='col-md-5 '>
               <div className='images-point '>
-                <img src='https://cdn.shulex-voc.com/shulex/upload/2024-06-28/1eb69cab-1135-4e1b-9e02-38204c7aeec9.jpg'></img>
+                <Image alt='images-point' src='https://cdn.shulex-voc.com/shulex/upload/2024-06-28/1eb69cab-1135-4e1b-9e02-38204c7aeec9.jpg' />
               </div>
             </div>
           </div>
