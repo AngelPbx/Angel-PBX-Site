@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 
-function solutions() {
+function Solutions() {
   return (
     <div className="main">
       <section className="pricing_banner " style={{ backgroundImage: `url(${'https://knowmax-ai-website.s3.amazonaws.com/wp-content/uploads/2023/12/26004145/Customer-Service-Call-Center.webp'})`, backgroundSize: 'cover', width: '100%' }}>
@@ -1063,4 +1063,4 @@ function solutions() {
   )
 }
 
-export default solutions
+export default Solutions

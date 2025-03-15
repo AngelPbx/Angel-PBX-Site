@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import React from 'react'
 
-function checkout() {
+function Checkout() {
   return (
     <>
       <div className="main">
@@ -323,4 +323,4 @@ function checkout() {
   )
 }
 
-export default checkout
+export default Checkout
