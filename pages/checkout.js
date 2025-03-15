@@ -305,7 +305,7 @@ function checkout() {
                     </p>
                   </div>
                   <div>
-                    <Link href="/account-details" className="serviceBtn w-100 py-3">
+                    <Link to="/account-details" className="serviceBtn w-100 py-3">
                       Checkout
                     </Link>
                   </div>
