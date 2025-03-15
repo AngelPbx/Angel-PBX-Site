@@ -45,6 +45,7 @@
     background: linear-gradient(135deg, #d41f9c, #ffa78c);
     max-block-size: -webkit-fill-available;
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -70,22 +71,12 @@
     border-radius: 5px;
 }
 
-
-.services .wrapper .serviceBackground {
- 
-}
-
-.main .industries .content h1{
+.main .industries .content h1 {
     background: linear-gradient(135deg, #d41f9c, #ffa78c);
     max-block-size: -webkit-fill-available;
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-}
-
-
-
-.services .wrapper .serviceContent {
-  
 }
 
 .services .wrapper .serviceContents-test {
@@ -245,6 +236,7 @@
     box-shadow: #a7f0ff40 0px 0px 20px 6px;
 
 }
+
 .main .images-point img {
     /* width:auto !important; */
     height: 80%;
@@ -258,9 +250,10 @@
 }
 
 
-main .images-positions{
+main .images-positions {
     margin-left: 15px !important;
 }
+
 .industries .tab-content .imgWrapper img {
     width: 100%;
     height: 100%;
@@ -338,13 +331,13 @@ main .images-positions{
 }
 
 
-.miniServices .icons-contact  i{
+.miniServices .icons-contact i {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 30px;
     width: 30px;
-    border: 1px solid ;
+    border: 1px solid;
     border-color: #871fff;
     background: #871fff;
     color: white;
@@ -353,7 +346,7 @@ main .images-positions{
 }
 
 
-.main .contact-form{
+.main .contact-form {
     /* border: 1px solid ; */
     background-color: #ffff;
     padding: 41px;
@@ -370,8 +363,9 @@ main .images-positions{
     min-height: 200px;
     padding: 38px;
     border-radius: 10px;
-   }
-.services .icon-phone i{
+}
+
+.services .icon-phone i {
     height: 50px;
     width: 50px;
     background: #4D6DDD;
@@ -384,56 +378,57 @@ main .images-positions{
 
 }
 
-.services .icon-phone  .b i{
+.services .icon-phone .b i {
     background: #FF5969;
 }
-.services .icon-phone  .c i{
+
+.services .icon-phone .c i {
     background: #3578FF;
 }
 
-.services .icon-phone  .d i{
+.services .icon-phone .d i {
     background: #19b44c;
 }
 
-.services .icon-phone  .e i{
+.services .icon-phone .e i {
     background: #d85420;
 }
 
-.services .icon-phone  .d i{
+.services .icon-phone .d i {
     background: #18b5c0;
 }
 
 
 
-.services .icon-phone p{
- margin-bottom: 10px;
-font-size: 15px;
+.services .icon-phone p {
+    margin-bottom: 10px;
+    font-size: 15px;
 }
-.main .services{
+
+.main .services {
     background-color: #ffff;
     text-align: center;
 }
 
 
-.contact-form label{
+.contact-form label {
     font-size: 14px;
     color: white;
     font-weight: 700;
 }
 
-.contact-form .form-control:focus, .form-control {
+.contact-form .form-control:focus,
+.form-control {
 
-background-color: transparent;
-color: white;
+    background-color: transparent;
+    color: white;
 }
 
 
 
-.cardDetailsWrapper .tvlrFormField  .form-control .form-control:focus{
+.cardDetailsWrapper .tvlrFormField .form-control .form-control:focus {
 
-color: black !important;
+    color: black !important;
 
-    
+
 }
-
-
